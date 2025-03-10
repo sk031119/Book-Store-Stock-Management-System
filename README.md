@@ -1,1 +1,1 @@
-# C-project
+# Book Store Stock Management System
