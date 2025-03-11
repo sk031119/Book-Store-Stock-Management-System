@@ -1,18 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\samue\\OneDrive\\\u6587\u4EF6\\GitHub\\Book-Store-Stock-Management-System\\",
+  "WorkspaceRootPath": "C:\\Users\\galaa\\Downloads\\Ari\\C#\\Book-Store-Stock-Management-System\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{697ECE5E-DC93-41BB-AA3C-027ACFFB78EA}|Book Store Stock Management System.csproj|c:\\users\\samue\\onedrive\\\u6587\u4EF6\\github\\book-store-stock-management-system\\bookstockform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{697ECE5E-DC93-41BB-AA3C-027ACFFB78EA}|Book Store Stock Management System.csproj|solutionrelative:bookstockform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{697ECE5E-DC93-41BB-AA3C-027ACFFB78EA}|Book Store Stock Management System.csproj|c:\\users\\galaa\\downloads\\ari\\c#\\book-store-stock-management-system\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{697ECE5E-DC93-41BB-AA3C-027ACFFB78EA}|Book Store Stock Management System.csproj|solutionrelative:mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{697ECE5E-DC93-41BB-AA3C-027ACFFB78EA}|Book Store Stock Management System.csproj|c:\\users\\samue\\onedrive\\\u6587\u4EF6\\github\\book-store-stock-management-system\\bookstockform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{697ECE5E-DC93-41BB-AA3C-027ACFFB78EA}|Book Store Stock Management System.csproj|solutionrelative:bookstockform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{697ECE5E-DC93-41BB-AA3C-027ACFFB78EA}|Book Store Stock Management System.csproj|c:\\users\\galaa\\downloads\\ari\\c#\\book-store-stock-management-system\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{697ECE5E-DC93-41BB-AA3C-027ACFFB78EA}|Book Store Stock Management System.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{697ECE5E-DC93-41BB-AA3C-027ACFFB78EA}|Book Store Stock Management System.csproj|c:\\users\\samue\\onedrive\\\u6587\u4EF6\\github\\book-store-stock-management-system\\bookstockform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{697ECE5E-DC93-41BB-AA3C-027ACFFB78EA}|Book Store Stock Management System.csproj|solutionrelative:bookstockform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{697ECE5E-DC93-41BB-AA3C-027ACFFB78EA}|Book Store Stock Management System.csproj|c:\\users\\galaa\\downloads\\ari\\c#\\book-store-stock-management-system\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{697ECE5E-DC93-41BB-AA3C-027ACFFB78EA}|Book Store Stock Management System.csproj|solutionrelative:mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,53 +22,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "BookStockForm.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\samue\\OneDrive\\\u6587\u4EF6\\GitHub\\Book-Store-Stock-Management-System\\BookStockForm.Designer.cs",
-              "RelativeDocumentMoniker": "BookStockForm.Designer.cs",
-              "ToolTip": "C:\\Users\\samue\\OneDrive\\\u6587\u4EF6\\GitHub\\Book-Store-Stock-Management-System\\BookStockForm.Designer.cs",
-              "RelativeToolTip": "BookStockForm.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAH8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T21:40:06.328Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "BookStockForm.cs",
-              "DocumentMoniker": "C:\\Users\\samue\\OneDrive\\\u6587\u4EF6\\GitHub\\Book-Store-Stock-Management-System\\BookStockForm.cs",
-              "RelativeDocumentMoniker": "BookStockForm.cs",
-              "ToolTip": "C:\\Users\\samue\\OneDrive\\\u6587\u4EF6\\GitHub\\Book-Store-Stock-Management-System\\BookStockForm.cs",
-              "RelativeToolTip": "BookStockForm.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAxwAUAAABDAAAAAAAAAA==",
+              "Title": "MainForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\galaa\\Downloads\\Ari\\C#\\Book-Store-Stock-Management-System\\MainForm.cs",
+              "RelativeDocumentMoniker": "MainForm.cs",
+              "ToolTip": "C:\\Users\\galaa\\Downloads\\Ari\\C#\\Book-Store-Stock-Management-System\\MainForm.cs [Design]",
+              "RelativeToolTip": "MainForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T21:26:47.291Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-11T03:06:37.043Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "BookStockForm.cs [\u8A2D\u8A08]",
-              "DocumentMoniker": "C:\\Users\\samue\\OneDrive\\\u6587\u4EF6\\GitHub\\Book-Store-Stock-Management-System\\BookStockForm.cs",
-              "RelativeDocumentMoniker": "BookStockForm.cs",
-              "ToolTip": "C:\\Users\\samue\\OneDrive\\\u6587\u4EF6\\GitHub\\Book-Store-Stock-Management-System\\BookStockForm.cs [\u8A2D\u8A08]",
-              "RelativeToolTip": "BookStockForm.cs [\u8A2D\u8A08]",
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\galaa\\Downloads\\Ari\\C#\\Book-Store-Stock-Management-System\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\galaa\\Downloads\\Ari\\C#\\Book-Store-Stock-Management-System\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T21:19:14.928Z",
-              "EditorCaption": " [\u8A2D\u8A08]"
+              "WhenOpened": "2025-03-10T23:30:20.391Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainForm.cs",
+              "DocumentMoniker": "C:\\Users\\galaa\\Downloads\\Ari\\C#\\Book-Store-Stock-Management-System\\MainForm.cs",
+              "RelativeDocumentMoniker": "MainForm.cs",
+              "ToolTip": "C:\\Users\\galaa\\Downloads\\Ari\\C#\\Book-Store-Stock-Management-System\\MainForm.cs",
+              "RelativeToolTip": "MainForm.cs",
+              "ViewState": "AgIAAKYAAAAAAAAAAAAUwLMAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-10T23:12:22.681Z",
+              "EditorCaption": ""
             }
           ]
         }
