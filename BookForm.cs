@@ -10,11 +10,12 @@ using System.Windows.Forms;
 
 namespace Book_Store_Stock_Management_System
 {
-    public partial class MainForm : Form
+    public partial class BookForm : Form
     {
-        private ErrorProvider errorProvider = new ErrorProvider();
+        public Book bookDetail;
+        Boolean isNew = true;
 
-        List<Book> bookList = new List<Book>();
+        private ErrorProvider errorProvider = new ErrorProvider();
 
         // Arrays for comboboxes
         string[] categories = { "Cooking", "Computer", "Horror", "Fiction", "Romance novel" };
@@ -22,18 +23,44 @@ namespace Book_Store_Stock_Management_System
         string[] publishers = { "Penguin Random House", "HarperCollins", "Simon & Schuster", "Macmillan", "Hachette Book Group" };
         string[] status = { "In-stock", "Low-stock", "Out-of-stock" };
 
-        public MainForm()
+        public BookForm()
         {
             InitializeComponent();
 
             // Populating combos
+            populateCombos();
+        }
+
+        public BookForm(Book book)
+        {
+            InitializeComponent();
+
+            this.isNew = false;
+
+            // Populating combos
+            populateCombos();
+            txtISBN.Enabled = false;
+
+            bookDetail = book;
+            txtTitle.Text = book.Title;
+            txtISBN.Text = book.ISBN;
+            txtPrice.Text = book.Price.ToString();
+            txtCount.Text = book.Count.ToString();
+            comboPublisher.SelectedItem = book.Publisher;
+            comboAuthor.SelectedItem = book.Author;
+            comboCategory.SelectedItem = book.Category;
+            comboStatus.SelectedItem = book.Status;
+        }
+
+        private void populateCombos()
+        {
             comboAuthor.Items.AddRange(authors);
             comboCategory.Items.AddRange(categories);
             comboPublisher.Items.AddRange(publishers);
             comboStatus.Items.AddRange(status);
-
         }
-        private void buttonAdd_Click(object sender, EventArgs e)
+
+        private void buttonSave_Click(object sender, EventArgs e)
         {
             try
             {
@@ -41,24 +68,20 @@ namespace Book_Store_Stock_Management_System
                 if (validateFields())
                 {
                     // Adding to list
-                    Book newBook = new Book();
-                    newBook.Id = bookList.Count;
-                    newBook.Title = txtTitle.Text;
-                    newBook.ISBN = txtISBN.Text;
-                    newBook.Price = Convert.ToDecimal(txtPrice.Text);
-                    newBook.Count = Convert.ToInt16(txtCount.Text);
-                    newBook.Status = comboStatus.SelectedItem.ToString();
-                    newBook.Author = comboAuthor.SelectedItem.ToString(); ;
-                    newBook.Category = comboCategory.SelectedItem.ToString();
-                    newBook.Publisher = comboPublisher.SelectedItem.ToString();
-                    bookList.Add(newBook);
-
-                    // Adding to listbox
-                    listBook.Items.Add(newBook.ToString());
-
-                    // Clear fields
-                    clearFields();
-                    txtTitle.Focus();
+                    this.bookDetail = new Book
+                    {
+                        Title = txtTitle.Text,
+                        ISBN = txtISBN.Text,
+                        Price = Convert.ToDecimal(txtPrice.Text),
+                        Count = Convert.ToInt16(txtCount.Text),
+                        Status = comboStatus.SelectedItem.ToString(),
+                        Author = comboAuthor.SelectedItem.ToString(),
+                        Category = comboCategory.SelectedItem.ToString(),
+                        Publisher = comboPublisher.SelectedItem.ToString()
+                    };
+                    MessageBox.Show(isNew ? "Successfully added" : "Successfully updated");
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
                 }
             }
             catch (Exception ex)
@@ -158,29 +181,5 @@ namespace Book_Store_Stock_Management_System
         {
             clearFields();
         }
-
-
-    }
-
-    class Book
-    {
-        public int Id;
-        public string Title;
-        public string ISBN;
-        public decimal Price;
-        public int Count;
-        public string Publisher;
-        public string Author;
-        public string Category;
-        public string Status;
-
-        public Book() { }
-
-        public override string ToString()
-        {
-            return $"Id: {Id}, Title: {Title}, ISBN: {ISBN}, Price: {Price:C}, Count: {Count}, " +
-                   $"Publisher: {Publisher}, Author: {Author}, Category: {Category}, Status: {Status}";
-        }
-
     }
 }

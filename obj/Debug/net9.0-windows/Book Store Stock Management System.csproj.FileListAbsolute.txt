@@ -20,7 +20,6 @@ C:\Users\galaa\Downloads\Ari\C#\Book-Store-Stock-Management-System\bin\Debug\net
 C:\Users\galaa\Downloads\Ari\C#\Book-Store-Stock-Management-System\bin\Debug\net9.0-windows\Book Store Stock Management System.runtimeconfig.json
 C:\Users\galaa\Downloads\Ari\C#\Book-Store-Stock-Management-System\bin\Debug\net9.0-windows\Book Store Stock Management System.dll
 C:\Users\galaa\Downloads\Ari\C#\Book-Store-Stock-Management-System\bin\Debug\net9.0-windows\Book Store Stock Management System.pdb
-C:\Users\galaa\Downloads\Ari\C#\Book-Store-Stock-Management-System\obj\Debug\net9.0-windows\Book_Store_Stock_Management_System.BookStockForm.resources
 C:\Users\galaa\Downloads\Ari\C#\Book-Store-Stock-Management-System\obj\Debug\net9.0-windows\Book Store Stock Management System.csproj.GenerateResource.cache
 C:\Users\galaa\Downloads\Ari\C#\Book-Store-Stock-Management-System\obj\Debug\net9.0-windows\Book Store Stock Management System.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\galaa\Downloads\Ari\C#\Book-Store-Stock-Management-System\obj\Debug\net9.0-windows\Book Store Stock Management System.AssemblyInfoInputs.cache
@@ -32,4 +31,6 @@ C:\Users\galaa\Downloads\Ari\C#\Book-Store-Stock-Management-System\obj\Debug\net
 C:\Users\galaa\Downloads\Ari\C#\Book-Store-Stock-Management-System\obj\Debug\net9.0-windows\Book Store Stock Management System.pdb
 C:\Users\galaa\Downloads\Ari\C#\Book-Store-Stock-Management-System\obj\Debug\net9.0-windows\Book Store Stock Management System.genruntimeconfig.cache
 C:\Users\galaa\Downloads\Ari\C#\Book-Store-Stock-Management-System\obj\Debug\net9.0-windows\ref\Book Store Stock Management System.dll
-C:\Users\galaa\Downloads\Ari\C#\Book-Store-Stock-Management-System\obj\Debug\net9.0-windows\Book_Store_Stock_Management_System.MainForm.resources
+C:\Users\galaa\Downloads\Ari\C#\Book-Store-Stock-Management-System\obj\Debug\net9.0-windows\Book_Store_Stock_Management_System.Dashboard.resources
+C:\Users\galaa\Downloads\Ari\C#\Book-Store-Stock-Management-System\obj\Debug\net9.0-windows\Book_Store_Stock_Management_System.LoginForm.resources
+C:\Users\galaa\Downloads\Ari\C#\Book-Store-Stock-Management-System\obj\Debug\net9.0-windows\Book_Store_Stock_Management_System.BookForm.resources
