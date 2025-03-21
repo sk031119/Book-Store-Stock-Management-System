@@ -1,20 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-public class Book
+namespace Book_Store_Stock_Management_System
 {
-    public required string Title { get; set; }
-    public required string ISBN { get; set; }
-    public decimal Price { get; set; }
-    public int Count { get; set; }
-    public required string Publisher { get; set; }
-    public required string Author { get; set; }
-    public required string Category { get; set; }
-    public required string Status { get; set; }
-
-    public override string ToString()
+    public class Book
     {
-        return $" ISBN: {ISBN}, Title: {Title},Price: {Price:C}, Count: {Count}, " +
-               $"Publisher: {Publisher}, Author: {Author}, Category: {Category}, Status: {Status}";
+        public string Title { get; set; }
+        public string ISBN { get; set; }
+        public decimal Price { get; set; }
+        public int Count { get; set; }
+        public string Publisher { get; set; }
+        public string Author { get; set; }
+        public string Category { get; set; }
+        public string Status { get; set; }
     }
-
 }
