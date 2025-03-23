@@ -155,5 +155,10 @@ namespace Book_Store_Stock_Management_System
                 populateList();
             }
         }
+
+        private void BookTab_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

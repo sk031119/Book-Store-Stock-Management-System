@@ -54,3 +54,23 @@ C:\Users\galaa\Downloads\Ari\C#\Book-Store-Stock-Management-System\Book Store St
 C:\Users\galaa\Downloads\Ari\C#\Book-Store-Stock-Management-System\Book Store Stock Management System\obj\Debug\net9.0-windows\Book Store Stock Management System.genruntimeconfig.cache
 C:\Users\galaa\Downloads\Ari\C#\Book-Store-Stock-Management-System\Book Store Stock Management System\obj\Debug\net9.0-windows\ref\Book Store Stock Management System.dll
 C:\Users\galaa\Downloads\Ari\C#\Book-Store-Stock-Management-System\Book Store Stock Management System\obj\Debug\net9.0-windows\Book_Store_Stock_Management_System.BookTab.resources
+C:\Users\samue\OneDrive\文件\GitHub\Book-Store-Stock-Management-System\Book Store Stock Management System\bin\Debug\net9.0-windows\Book Store Stock Management System.exe
+C:\Users\samue\OneDrive\文件\GitHub\Book-Store-Stock-Management-System\Book Store Stock Management System\bin\Debug\net9.0-windows\Book Store Stock Management System.deps.json
+C:\Users\samue\OneDrive\文件\GitHub\Book-Store-Stock-Management-System\Book Store Stock Management System\bin\Debug\net9.0-windows\Book Store Stock Management System.runtimeconfig.json
+C:\Users\samue\OneDrive\文件\GitHub\Book-Store-Stock-Management-System\Book Store Stock Management System\bin\Debug\net9.0-windows\Book Store Stock Management System.dll
+C:\Users\samue\OneDrive\文件\GitHub\Book-Store-Stock-Management-System\Book Store Stock Management System\bin\Debug\net9.0-windows\Book Store Stock Management System.pdb
+C:\Users\samue\OneDrive\文件\GitHub\Book-Store-Stock-Management-System\Book Store Stock Management System\obj\Debug\net9.0-windows\Book_Store_Stock_Management_System.BookForm.resources
+C:\Users\samue\OneDrive\文件\GitHub\Book-Store-Stock-Management-System\Book Store Stock Management System\obj\Debug\net9.0-windows\Book_Store_Stock_Management_System.BookTab.resources
+C:\Users\samue\OneDrive\文件\GitHub\Book-Store-Stock-Management-System\Book Store Stock Management System\obj\Debug\net9.0-windows\Book_Store_Stock_Management_System.Dashboard.resources
+C:\Users\samue\OneDrive\文件\GitHub\Book-Store-Stock-Management-System\Book Store Stock Management System\obj\Debug\net9.0-windows\Book_Store_Stock_Management_System.LoginForm.resources
+C:\Users\samue\OneDrive\文件\GitHub\Book-Store-Stock-Management-System\Book Store Stock Management System\obj\Debug\net9.0-windows\Book Store Stock Management System.csproj.GenerateResource.cache
+C:\Users\samue\OneDrive\文件\GitHub\Book-Store-Stock-Management-System\Book Store Stock Management System\obj\Debug\net9.0-windows\Book Store Stock Management System.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\samue\OneDrive\文件\GitHub\Book-Store-Stock-Management-System\Book Store Stock Management System\obj\Debug\net9.0-windows\Book Store Stock Management System.AssemblyInfoInputs.cache
+C:\Users\samue\OneDrive\文件\GitHub\Book-Store-Stock-Management-System\Book Store Stock Management System\obj\Debug\net9.0-windows\Book Store Stock Management System.AssemblyInfo.cs
+C:\Users\samue\OneDrive\文件\GitHub\Book-Store-Stock-Management-System\Book Store Stock Management System\obj\Debug\net9.0-windows\Book Store Stock Management System.csproj.CoreCompileInputs.cache
+C:\Users\samue\OneDrive\文件\GitHub\Book-Store-Stock-Management-System\Book Store Stock Management System\obj\Debug\net9.0-windows\Book Store Stock Management System.sourcelink.json
+C:\Users\samue\OneDrive\文件\GitHub\Book-Store-Stock-Management-System\Book Store Stock Management System\obj\Debug\net9.0-windows\Book Store Stock Management System.dll
+C:\Users\samue\OneDrive\文件\GitHub\Book-Store-Stock-Management-System\Book Store Stock Management System\obj\Debug\net9.0-windows\refint\Book Store Stock Management System.dll
+C:\Users\samue\OneDrive\文件\GitHub\Book-Store-Stock-Management-System\Book Store Stock Management System\obj\Debug\net9.0-windows\Book Store Stock Management System.pdb
+C:\Users\samue\OneDrive\文件\GitHub\Book-Store-Stock-Management-System\Book Store Stock Management System\obj\Debug\net9.0-windows\Book Store Stock Management System.genruntimeconfig.cache
+C:\Users\samue\OneDrive\文件\GitHub\Book-Store-Stock-Management-System\Book Store Stock Management System\obj\Debug\net9.0-windows\ref\Book Store Stock Management System.dll
