@@ -74,3 +74,7 @@ C:\Users\samue\OneDrive\文件\GitHub\Book-Store-Stock-Management-System\Book St
 C:\Users\samue\OneDrive\文件\GitHub\Book-Store-Stock-Management-System\Book Store Stock Management System\obj\Debug\net9.0-windows\Book Store Stock Management System.pdb
 C:\Users\samue\OneDrive\文件\GitHub\Book-Store-Stock-Management-System\Book Store Stock Management System\obj\Debug\net9.0-windows\Book Store Stock Management System.genruntimeconfig.cache
 C:\Users\samue\OneDrive\文件\GitHub\Book-Store-Stock-Management-System\Book Store Stock Management System\obj\Debug\net9.0-windows\ref\Book Store Stock Management System.dll
+C:\Users\samue\OneDrive\文件\GitHub\Book-Store-Stock-Management-System\Book Store Stock Management System\obj\Debug\net9.0-windows\Book_Store_Stock_Management_System.AuthorsTab.resources
+C:\Users\samue\OneDrive\文件\GitHub\Book-Store-Stock-Management-System\Book Store Stock Management System\obj\Debug\net9.0-windows\Book_Store_Stock_Management_System.AuthorForm.resources
+C:\Users\samue\OneDrive\文件\GitHub\Book-Store-Stock-Management-System\Book Store Stock Management System\obj\Debug\net9.0-windows\Book_Store_Stock_Management_System.PublisherForm.resources
+C:\Users\samue\OneDrive\文件\GitHub\Book-Store-Stock-Management-System\Book Store Stock Management System\obj\Debug\net9.0-windows\Book_Store_Stock_Management_System.PublisherTab.resources

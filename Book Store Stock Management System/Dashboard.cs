@@ -36,7 +36,14 @@ namespace Book_Store_Stock_Management_System
             BookTab booksTab = new BookTab();
             booksTab.Dock = DockStyle.Fill;
             tabBooks.Controls.Add(booksTab);
-            
+
+            AuthorsTab authorsTab = new AuthorsTab();
+            authorsTab.Dock = DockStyle.Fill;
+            tabAuthors.Controls.Add(authorsTab);
+
+            PublisherTab publishersTab = new PublisherTab();
+            publishersTab.Dock = DockStyle.Fill;
+            tabPublishers.Controls.Add(publishersTab);
 
             // Removing tabs based on role
             if (userRole == UserRole.User)
@@ -52,6 +59,11 @@ namespace Book_Store_Stock_Management_System
                 tabControl.TabPages.Remove(tabReports);
                 tabControl.TabPages.Remove(tabEmployees);
             }
+        }
+
+        private void Dashboard_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

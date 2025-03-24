@@ -48,7 +48,7 @@
             tabControl.Controls.Add(tabReports);
             tabControl.Controls.Add(tabEmployees);
             tabControl.Location = new Point(13, 14);
-            tabControl.Margin = new Padding(4, 4, 4, 4);
+            tabControl.Margin = new Padding(4);
             tabControl.Name = "tabControl";
             tabControl.SelectedIndex = 0;
             tabControl.Size = new Size(1094, 585);
@@ -57,9 +57,9 @@
             // tabBooks
             // 
             tabBooks.Location = new Point(4, 28);
-            tabBooks.Margin = new Padding(4, 4, 4, 4);
+            tabBooks.Margin = new Padding(4);
             tabBooks.Name = "tabBooks";
-            tabBooks.Padding = new Padding(4, 4, 4, 4);
+            tabBooks.Padding = new Padding(4);
             tabBooks.Size = new Size(1086, 553);
             tabBooks.TabIndex = 0;
             tabBooks.Text = "Books";
@@ -68,9 +68,9 @@
             // tabAuthors
             // 
             tabAuthors.Location = new Point(4, 28);
-            tabAuthors.Margin = new Padding(4, 4, 4, 4);
+            tabAuthors.Margin = new Padding(4);
             tabAuthors.Name = "tabAuthors";
-            tabAuthors.Padding = new Padding(4, 4, 4, 4);
+            tabAuthors.Padding = new Padding(4);
             tabAuthors.Size = new Size(1086, 553);
             tabAuthors.TabIndex = 1;
             tabAuthors.Text = "Authors";
@@ -79,7 +79,7 @@
             // tabCategory
             // 
             tabCategory.Location = new Point(4, 28);
-            tabCategory.Margin = new Padding(4, 4, 4, 4);
+            tabCategory.Margin = new Padding(4);
             tabCategory.Name = "tabCategory";
             tabCategory.Size = new Size(1086, 553);
             tabCategory.TabIndex = 2;
@@ -89,7 +89,7 @@
             // tabPublishers
             // 
             tabPublishers.Location = new Point(4, 28);
-            tabPublishers.Margin = new Padding(4, 4, 4, 4);
+            tabPublishers.Margin = new Padding(4);
             tabPublishers.Name = "tabPublishers";
             tabPublishers.Size = new Size(1086, 553);
             tabPublishers.TabIndex = 3;
@@ -99,7 +99,7 @@
             // tabReports
             // 
             tabReports.Location = new Point(4, 28);
-            tabReports.Margin = new Padding(4, 4, 4, 4);
+            tabReports.Margin = new Padding(4);
             tabReports.Name = "tabReports";
             tabReports.Size = new Size(1086, 553);
             tabReports.TabIndex = 5;
@@ -109,7 +109,7 @@
             // tabEmployees
             // 
             tabEmployees.Location = new Point(4, 28);
-            tabEmployees.Margin = new Padding(4, 4, 4, 4);
+            tabEmployees.Margin = new Padding(4);
             tabEmployees.Name = "tabEmployees";
             tabEmployees.Size = new Size(1086, 553);
             tabEmployees.TabIndex = 6;
@@ -136,9 +136,10 @@
             ClientSize = new Size(1125, 616);
             Controls.Add(lblWelcome);
             Controls.Add(tabControl);
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "Dashboard";
             Text = "Stock Management System";
+            Load += Dashboard_Load;
             tabControl.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();

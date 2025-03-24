@@ -8,40 +8,54 @@ namespace Book_Store_Stock_Management_System
 {
     public static class AuthorDB
     {
-        private const string Dir = @"C:\Users\galaa\Downloads\Ari\C#\Files\";
-        private const string Path = Dir + "Author.csv";
+        private const string Dir = @"C:\Users\Public\Documents";
+        private const string Path = Dir + "\\Author.csv";
 
         public static List<Author> GetAuthor()
         {
             List<Author> authors = new List<Author>();
 
-            StreamReader textIn = new StreamReader(
-                new FileStream(Path, FileMode.Open, FileAccess.Read));
-
-            while (textIn.Peek() != -1)
+            // Check if the file exists, if not, create an empty file
+            if (!File.Exists(Path))
             {
-                string row = textIn.ReadLine();
-                string[] columns = row.Split(',');
-                Author author = new Author();
-                author.FName = columns[0];
-                author.LName = columns[1];
-                authors.Add(author);
-
+                // Ensure the directory exists
+                Directory.CreateDirectory(Dir);
+                // Create an empty file
+                File.Create(Path).Close();
+                return authors; // Return an empty list
             }
 
-            textIn.Close();
+            using (StreamReader textIn = new StreamReader(
+                new FileStream(Path, FileMode.Open, FileAccess.Read)))
+            {
+                while (textIn.Peek() != -1)
+                {
+                    string row = textIn.ReadLine();
+                    string[] columns = row.Split(',');
+                    Author author = new Author();
+                    author.FName = columns[0];
+                    author.LName = columns[1];
+                    authors.Add(author);
+                }
+            }
+
             return authors;
         }
+
         public static void SaveAuthor(List<Author> authors)
         {
-            StreamWriter textOut = new StreamWriter(
-                new FileStream(Path, FileMode.Create, FileAccess.Write));
-            foreach (Author author in authors)
+            // Ensure the directory exists
+            Directory.CreateDirectory(Dir);
+
+            using (StreamWriter textOut = new StreamWriter(
+                new FileStream(Path, FileMode.Create, FileAccess.Write)))
             {
-                textOut.Write(author.FName + ",");
-                textOut.WriteLine(author.LName);
+                foreach (Author author in authors)
+                {
+                    textOut.Write(author.FName + ",");
+                    textOut.WriteLine(author.LName);
+                }
             }
-            textOut.Close();
         }
     }
 }
