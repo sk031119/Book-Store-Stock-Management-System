@@ -8,8 +8,8 @@ namespace Book_Store_Stock_Management_System
 {
     public class Categories
     {
-        public string CatName { get; set; }
-        public string CatCode { get; set; }
+        public int CategoryId { get; set; }
+        public string CategoryName { get; set; }
 
 
     }

@@ -66,7 +66,5 @@ namespace Book_Store_Stock_Management_System
                 Directory.CreateDirectory(Dir);
             }
         }
-
-
     }
 }

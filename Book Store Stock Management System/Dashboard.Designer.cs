@@ -47,71 +47,64 @@
             tabControl.Controls.Add(tabPublishers);
             tabControl.Controls.Add(tabReports);
             tabControl.Controls.Add(tabEmployees);
-            tabControl.Location = new Point(13, 14);
-            tabControl.Margin = new Padding(4);
+            tabControl.Location = new Point(10, 11);
             tabControl.Name = "tabControl";
             tabControl.SelectedIndex = 0;
-            tabControl.Size = new Size(1094, 585);
+            tabControl.Size = new Size(851, 462);
             tabControl.TabIndex = 0;
             // 
             // tabBooks
             // 
-            tabBooks.Location = new Point(4, 28);
-            tabBooks.Margin = new Padding(4);
+            tabBooks.Location = new Point(4, 24);
             tabBooks.Name = "tabBooks";
-            tabBooks.Padding = new Padding(4);
-            tabBooks.Size = new Size(1086, 553);
+            tabBooks.Padding = new Padding(3, 3, 3, 3);
+            tabBooks.Size = new Size(843, 434);
             tabBooks.TabIndex = 0;
             tabBooks.Text = "Books";
             tabBooks.UseVisualStyleBackColor = true;
             // 
             // tabAuthors
             // 
-            tabAuthors.Location = new Point(4, 28);
-            tabAuthors.Margin = new Padding(4);
+            tabAuthors.Location = new Point(4, 24);
             tabAuthors.Name = "tabAuthors";
-            tabAuthors.Padding = new Padding(4);
-            tabAuthors.Size = new Size(1086, 553);
+            tabAuthors.Padding = new Padding(3, 3, 3, 3);
+            tabAuthors.Size = new Size(843, 434);
             tabAuthors.TabIndex = 1;
             tabAuthors.Text = "Authors";
             tabAuthors.UseVisualStyleBackColor = true;
             // 
             // tabCategory
             // 
-            tabCategory.Location = new Point(4, 28);
-            tabCategory.Margin = new Padding(4);
+            tabCategory.Location = new Point(4, 24);
             tabCategory.Name = "tabCategory";
-            tabCategory.Size = new Size(1086, 553);
+            tabCategory.Size = new Size(843, 434);
             tabCategory.TabIndex = 2;
             tabCategory.Text = "Categories";
             tabCategory.UseVisualStyleBackColor = true;
             // 
             // tabPublishers
             // 
-            tabPublishers.Location = new Point(4, 28);
-            tabPublishers.Margin = new Padding(4);
+            tabPublishers.Location = new Point(4, 24);
             tabPublishers.Name = "tabPublishers";
-            tabPublishers.Size = new Size(1086, 553);
+            tabPublishers.Size = new Size(843, 434);
             tabPublishers.TabIndex = 3;
             tabPublishers.Text = "Publishers";
             tabPublishers.UseVisualStyleBackColor = true;
             // 
             // tabReports
             // 
-            tabReports.Location = new Point(4, 28);
-            tabReports.Margin = new Padding(4);
+            tabReports.Location = new Point(4, 24);
             tabReports.Name = "tabReports";
-            tabReports.Size = new Size(1086, 553);
+            tabReports.Size = new Size(843, 434);
             tabReports.TabIndex = 5;
             tabReports.Text = "Reports";
             tabReports.UseVisualStyleBackColor = true;
             // 
             // tabEmployees
             // 
-            tabEmployees.Location = new Point(4, 28);
-            tabEmployees.Margin = new Padding(4);
+            tabEmployees.Location = new Point(4, 24);
             tabEmployees.Name = "tabEmployees";
-            tabEmployees.Size = new Size(1086, 553);
+            tabEmployees.Size = new Size(843, 434);
             tabEmployees.TabIndex = 6;
             tabEmployees.Text = "Employees";
             tabEmployees.UseVisualStyleBackColor = true;
@@ -120,23 +113,21 @@
             // 
             lblWelcome.AutoSize = true;
             lblWelcome.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblWelcome.Location = new Point(963, 14);
-            lblWelcome.Margin = new Padding(4, 0, 4, 0);
+            lblWelcome.Location = new Point(749, 11);
             lblWelcome.Name = "lblWelcome";
             lblWelcome.RightToLeft = RightToLeft.No;
-            lblWelcome.Size = new Size(134, 20);
+            lblWelcome.Size = new Size(106, 15);
             lblWelcome.TabIndex = 1;
             lblWelcome.Text = "Welcome, Admin!";
             lblWelcome.TextAlign = ContentAlignment.TopRight;
             // 
             // Dashboard
             // 
-            AutoScaleDimensions = new SizeF(9F, 19F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1125, 616);
+            ClientSize = new Size(875, 486);
             Controls.Add(lblWelcome);
             Controls.Add(tabControl);
-            Margin = new Padding(4);
             Name = "Dashboard";
             Text = "Stock Management System";
             Load += Dashboard_Load;

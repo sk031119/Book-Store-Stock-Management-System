@@ -10,6 +10,12 @@
     <Compile Update="BookTab.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="CategoriesTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="CategoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>

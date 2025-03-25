@@ -82,3 +82,5 @@ C:\Users\galaa\Downloads\Ari\C#\Book-Store-Stock-Management-System\Book Store St
 C:\Users\galaa\Downloads\Ari\C#\Book-Store-Stock-Management-System\Book Store Stock Management System\obj\Debug\net9.0-windows\Book_Store_Stock_Management_System.AuthorsTab.resources
 C:\Users\galaa\Downloads\Ari\C#\Book-Store-Stock-Management-System\Book Store Stock Management System\obj\Debug\net9.0-windows\Book_Store_Stock_Management_System.PublisherForm.resources
 C:\Users\galaa\Downloads\Ari\C#\Book-Store-Stock-Management-System\Book Store Stock Management System\obj\Debug\net9.0-windows\Book_Store_Stock_Management_System.PublisherTab.resources
+C:\Users\galaa\Downloads\Ari\C#\Book-Store-Stock-Management-System\Book Store Stock Management System\obj\Debug\net9.0-windows\Book_Store_Stock_Management_System.CategoriesTab.resources
+C:\Users\galaa\Downloads\Ari\C#\Book-Store-Stock-Management-System\Book Store Stock Management System\obj\Debug\net9.0-windows\Book_Store_Stock_Management_System.CategoryForm.resources

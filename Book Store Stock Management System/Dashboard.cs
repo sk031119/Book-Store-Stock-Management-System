@@ -45,6 +45,10 @@ namespace Book_Store_Stock_Management_System
             publishersTab.Dock = DockStyle.Fill;
             tabPublishers.Controls.Add(publishersTab);
 
+            CategoriesTab categoriesTab = new CategoriesTab();
+            categoriesTab.Dock = DockStyle.Fill;
+            tabCategory.Controls.Add(categoriesTab);
+
             // Removing tabs based on role
             if (userRole == UserRole.User)
             {
