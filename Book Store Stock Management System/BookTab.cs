@@ -12,15 +12,12 @@ namespace Book_Store_Stock_Management_System
 {
     public partial class BookTab : UserControl
     {
-        List<Book> bookList = new List<Book>{
-            new Book { ISBN = "987654321",  Title = "Harry Potter",Price = 39.99m, Count = 5, Publisher = "HarperCollins", Author = "J. K. Rowling", Category = "Fiction", Status = "Low-stock" },
-            new Book { ISBN = "123456789",  Title = "War and Peace",Price = 29.99m, Count = 10, Publisher = "Macmillan", Author = "Alexandre Dumas", Category = "Fiction", Status = "In-stock" }
-        };
+        List<Book> bookList = new List<Book>();
 
         public BookTab()
         {
             InitializeComponent();
-            BookDB.GetBooks();
+            bookList = BookDB.GetBooks();
 
             // Populate list
             populateList();
@@ -30,19 +27,20 @@ namespace Book_Store_Stock_Management_System
         {
             listVwBooks.Items.Clear();
 
-            foreach (var book in this.bookList)
+            var items = bookList.Select(book => new ListViewItem(book.ISBN)
             {
-                ListViewItem item = new ListViewItem(book.ISBN);
-                item.SubItems.Add(book.Title);
-                item.SubItems.Add(book.Author);
-                item.SubItems.Add(book.Category);
-                item.SubItems.Add(book.Publisher);
-                item.SubItems.Add(book.Price.ToString("C"));
-                item.SubItems.Add(book.Count.ToString());
-                item.SubItems.Add(book.Status);
+                SubItems = {
+                        book.Title,
+                        book.Author,
+                        book.Category,
+                        book.Publisher,
+                        book.Price.ToString("C"),
+                        book.Count.ToString(),
+                        book.Status
+                    }
+            }).ToArray();
 
-                listVwBooks.Items.Add(item);
-            }
+            listVwBooks.Items.AddRange(items);
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
@@ -53,6 +51,7 @@ namespace Book_Store_Stock_Management_System
                 {
                     Book newBook = bookForm.bookDetail;
                     bookList.Add(newBook);
+                    BookDB.SaveBooks(bookList);
                     populateList();
                 }
             }
@@ -89,6 +88,7 @@ namespace Book_Store_Stock_Management_System
                     selectedBook.Author = bookForm.bookDetail.Author;
                     selectedBook.Category = bookForm.bookDetail.Category;
                     selectedBook.Status = bookForm.bookDetail.Status;
+                    BookDB.SaveBooks(bookList);
                     populateList();
                 }
             }
@@ -97,15 +97,7 @@ namespace Book_Store_Stock_Management_System
         private void buttonSearch_Click(object sender, EventArgs e)
         {
             string title = txtSearch.Text.Trim();
-            List<Book> filteredBook = new List<Book>();
-
-            foreach (Book book in bookList)
-            {
-                if (book.Title.Contains(title, StringComparison.OrdinalIgnoreCase))
-                {
-                    filteredBook.Add(book);
-                }
-            }
+            var filteredBook = bookList.Where(book => book.Title.Contains(title, StringComparison.OrdinalIgnoreCase)).ToList();
             filterList(filteredBook);
         }
 
@@ -113,19 +105,20 @@ namespace Book_Store_Stock_Management_System
         {
             listVwBooks.Items.Clear();
 
-            foreach (var book in books)
+            var items = books.Select(book => new ListViewItem(book.ISBN)
             {
-                ListViewItem item = new ListViewItem(book.ISBN);
-                item.SubItems.Add(book.Title);
-                item.SubItems.Add(book.Author);
-                item.SubItems.Add(book.Category);
-                item.SubItems.Add(book.Publisher);
-                item.SubItems.Add(book.Price.ToString("C"));
-                item.SubItems.Add(book.Count.ToString());
-                item.SubItems.Add(book.Status);
+                SubItems = {
+                        book.Title,
+                        book.Author,
+                        book.Category,
+                        book.Publisher,
+                        book.Price.ToString("C"),
+                        book.Count.ToString(),
+                        book.Status
+                    }
+            }).ToArray();
 
-                listVwBooks.Items.Add(item);
-            }
+            listVwBooks.Items.AddRange(items);
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -154,8 +147,14 @@ namespace Book_Store_Stock_Management_System
             if (dialogResult == DialogResult.Yes)
             {
                 bookList.Remove(selectedBook);
+                BookDB.SaveBooks(bookList);
                 populateList();
             }
+        }
+
+        private void BookTab_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -96,15 +96,15 @@
             // 
             txtISBN.Location = new Point(107, 22);
             txtISBN.Name = "txtISBN";
-            txtISBN.Size = new Size(118, 23);
-            txtISBN.TabIndex = 2;
+            txtISBN.Size = new Size(93, 23);
+            txtISBN.TabIndex = 1;
             // 
             // txtTitle
             // 
             txtTitle.Location = new Point(107, 55);
             txtTitle.Name = "txtTitle";
-            txtTitle.Size = new Size(118, 23);
-            txtTitle.TabIndex = 1;
+            txtTitle.Size = new Size(93, 23);
+            txtTitle.TabIndex = 2;
             // 
             // labelCount
             // 
@@ -192,26 +192,26 @@
             // txtPrice
             // 
             txtPrice.DecimalPlaces = 2;
-            txtPrice.Location = new Point(107, 95);
+            txtPrice.Location = new Point(108, 93);
             txtPrice.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
             txtPrice.Name = "txtPrice";
-            txtPrice.Size = new Size(118, 23);
-            txtPrice.TabIndex = 11;
+            txtPrice.Size = new Size(92, 23);
+            txtPrice.TabIndex = 3;
             txtPrice.ThousandsSeparator = true;
             // 
             // txtCount
             // 
-            txtCount.Location = new Point(107, 130);
+            txtCount.Location = new Point(108, 130);
             txtCount.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
             txtCount.Name = "txtCount";
-            txtCount.Size = new Size(118, 23);
-            txtCount.TabIndex = 12;
+            txtCount.Size = new Size(92, 23);
+            txtCount.TabIndex = 4;
             // 
             // BookForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(487, 240);
+            ClientSize = new Size(482, 230);
             Controls.Add(txtCount);
             Controls.Add(txtPrice);
             Controls.Add(buttonSave);
@@ -232,6 +232,7 @@
             Controls.Add(txtISBN);
             Name = "BookForm";
             Text = "Book";
+            Load += BookForm_Load;
             ((System.ComponentModel.ISupportInitialize)txtPrice).EndInit();
             ((System.ComponentModel.ISupportInitialize)txtCount).EndInit();
             ResumeLayout(false);
