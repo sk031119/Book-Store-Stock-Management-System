@@ -30,11 +30,9 @@
         {
             buttonClear = new Button();
             comboStatus = new ComboBox();
-            txtCount = new TextBox();
             comboCategory = new ComboBox();
             comboPublisher = new ComboBox();
             comboAuthor = new ComboBox();
-            txtPrice = new TextBox();
             txtISBN = new TextBox();
             txtTitle = new TextBox();
             labelCount = new Label();
@@ -46,6 +44,10 @@
             labelPublisher = new Label();
             labelPrice = new Label();
             buttonSave = new Button();
+            txtPrice = new NumericUpDown();
+            txtCount = new NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)txtPrice).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)txtCount).BeginInit();
             SuspendLayout();
             // 
             // buttonClear
@@ -65,13 +67,6 @@
             comboStatus.Name = "comboStatus";
             comboStatus.Size = new Size(121, 23);
             comboStatus.TabIndex = 8;
-            // 
-            // txtCount
-            // 
-            txtCount.Location = new Point(105, 129);
-            txtCount.Name = "txtCount";
-            txtCount.Size = new Size(100, 23);
-            txtCount.TabIndex = 4;
             // 
             // comboCategory
             // 
@@ -97,25 +92,18 @@
             comboAuthor.Size = new Size(121, 23);
             comboAuthor.TabIndex = 6;
             // 
-            // txtPrice
-            // 
-            txtPrice.Location = new Point(107, 92);
-            txtPrice.Name = "txtPrice";
-            txtPrice.Size = new Size(100, 23);
-            txtPrice.TabIndex = 3;
-            // 
             // txtISBN
             // 
             txtISBN.Location = new Point(107, 22);
             txtISBN.Name = "txtISBN";
-            txtISBN.Size = new Size(100, 23);
+            txtISBN.Size = new Size(118, 23);
             txtISBN.TabIndex = 2;
             // 
             // txtTitle
             // 
             txtTitle.Location = new Point(107, 55);
             txtTitle.Name = "txtTitle";
-            txtTitle.Size = new Size(100, 23);
+            txtTitle.Size = new Size(118, 23);
             txtTitle.TabIndex = 1;
             // 
             // labelCount
@@ -201,18 +189,37 @@
             buttonSave.Click += buttonSave_Click;
             buttonSave.Enter += buttonSave_Click;
             // 
+            // txtPrice
+            // 
+            txtPrice.DecimalPlaces = 2;
+            txtPrice.Location = new Point(107, 95);
+            txtPrice.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+            txtPrice.Name = "txtPrice";
+            txtPrice.Size = new Size(118, 23);
+            txtPrice.TabIndex = 11;
+            txtPrice.ThousandsSeparator = true;
+            // 
+            // txtCount
+            // 
+            txtCount.Location = new Point(107, 130);
+            txtCount.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
+            txtCount.Name = "txtCount";
+            txtCount.Size = new Size(118, 23);
+            txtCount.TabIndex = 12;
+            // 
             // BookForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(487, 240);
+            Controls.Add(txtCount);
+            Controls.Add(txtPrice);
             Controls.Add(buttonSave);
             Controls.Add(buttonClear);
             Controls.Add(comboStatus);
             Controls.Add(label1);
             Controls.Add(comboCategory);
             Controls.Add(comboPublisher);
-            Controls.Add(txtCount);
             Controls.Add(comboAuthor);
             Controls.Add(labelPrice);
             Controls.Add(labelStatus);
@@ -222,10 +229,11 @@
             Controls.Add(labelAuthor);
             Controls.Add(txtTitle);
             Controls.Add(labelPublisher);
-            Controls.Add(txtPrice);
             Controls.Add(txtISBN);
             Name = "BookForm";
             Text = "Book";
+            ((System.ComponentModel.ISupportInitialize)txtPrice).EndInit();
+            ((System.ComponentModel.ISupportInitialize)txtCount).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -233,11 +241,9 @@
         #endregion
         private Button buttonClear;
         private ComboBox comboStatus;
-        private TextBox txtCount;
         private ComboBox comboCategory;
         private ComboBox comboPublisher;
         private ComboBox comboAuthor;
-        private TextBox txtPrice;
         private TextBox txtISBN;
         private TextBox txtTitle;
         private Label labelCount;
@@ -249,5 +255,7 @@
         private Label labelPublisher;
         private Label labelPrice;
         private Button buttonSave;
+        private NumericUpDown txtPrice;
+        private NumericUpDown txtCount;
     }
 }

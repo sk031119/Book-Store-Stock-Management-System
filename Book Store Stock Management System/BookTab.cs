@@ -20,6 +20,8 @@ namespace Book_Store_Stock_Management_System
         public BookTab()
         {
             InitializeComponent();
+            BookDB.GetBooks();
+
             // Populate list
             populateList();
         }

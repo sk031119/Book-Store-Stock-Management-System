@@ -168,8 +168,8 @@ namespace Book_Store_Stock_Management_System
         {
             txtTitle.Clear();
             txtISBN.Clear();
-            txtCount.Clear();
-            txtPrice.Clear();
+            txtCount.Value = 0;
+            txtPrice.Value = 0;
 
             comboAuthor.SelectedIndex = -1;
             comboCategory.SelectedIndex = -1;

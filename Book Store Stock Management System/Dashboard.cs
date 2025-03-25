@@ -36,7 +36,7 @@ namespace Book_Store_Stock_Management_System
             BookTab booksTab = new BookTab();
             booksTab.Dock = DockStyle.Fill;
             tabBooks.Controls.Add(booksTab);
-            
+
 
             // Removing tabs based on role
             if (userRole == UserRole.User)
