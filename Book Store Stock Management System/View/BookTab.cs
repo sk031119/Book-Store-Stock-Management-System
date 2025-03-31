@@ -27,6 +27,13 @@ namespace Book_Store_Stock_Management_System
 
             listVwBooks.SmallImageList = statusIcons;
 
+            // Get data
+            bookList = BookDB.GetBooks();
+            populateList();
+        }
+
+        public void populateList()
+        {
             // combo values
             using (var context = new CsdbContext())
             {
@@ -35,13 +42,6 @@ namespace Book_Store_Stock_Management_System
                 publishers = context.Publishers.ToList();
             }
 
-            // Get data
-            bookList = BookDB.GetBooks();
-            populateList();
-        }
-
-        public void populateList()
-        {
             listVwBooks.Items.Clear();
 
             foreach (var book in bookList)
@@ -134,12 +134,20 @@ namespace Book_Store_Stock_Management_System
                                                "Confirm",
                                                MessageBoxButtons.YesNo,
                                                MessageBoxIcon.Question);
-
             if (dialogResult == DialogResult.Yes)
             {
-                BookDB.DeleteBook(isbn);
-                bookList = BookDB.GetBooks();
-                populateList();
+                string errorMessage;
+                bool success = BookDB.DeleteBook(isbn, out errorMessage);
+
+                if (success)
+                {
+                    bookList = BookDB.GetBooks();
+                    populateList();
+                }
+                else
+                {
+                    MessageBox.Show(errorMessage, "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

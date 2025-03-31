@@ -1,4 +1,6 @@
 ﻿using Book_Store_Stock_Management_System.Models;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 
 namespace Book_Store_Stock_Management_System.Controller
 {
@@ -47,17 +49,40 @@ namespace Book_Store_Stock_Management_System.Controller
         }
 
         // Delete book
-        public static void DeleteBook(long isbn)
+        public static bool DeleteBook(long isbn, out string errorMessage)
         {
+            errorMessage = string.Empty;
+
             using (var context = new CsdbContext())
             {
                 var book = context.Books.FirstOrDefault(b => b.Isbn == isbn);
                 if (book != null)
                 {
-                    context.Books.Remove(book);
-                    context.SaveChanges();
+                    try
+                    {
+                        context.Books.Remove(book);
+                        context.SaveChanges();
+                        return true;
+                    }
+                    catch (DbUpdateException dbEx)
+                    {
+                        if (dbEx.InnerException is SqlException sqlEx && sqlEx.Number == 547)
+                        {
+                            errorMessage = "Cannot delete this book because it has related records!";
+                        }
+                        else
+                        {
+                            errorMessage = "Database error: " + dbEx.Message;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        errorMessage = "Unexpected error: " + ex.Message;
+                    }
                 }
             }
+
+            return false;
         }
 
         // Search by title

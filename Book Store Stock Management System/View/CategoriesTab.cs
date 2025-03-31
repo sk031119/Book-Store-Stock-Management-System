@@ -1,28 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Book_Store_Stock_Management_System.Controller;
+﻿using Book_Store_Stock_Management_System.Controller;
+using Book_Store_Stock_Management_System.Models;
 
 namespace Book_Store_Stock_Management_System
 {
     public partial class CategoriesTab : UserControl
     {
-        List<CategoriesOld> categoryList = new List<CategoriesOld>();
+        List<Category> categoryList = new List<Category>();
+
         public CategoriesTab()
         {
             InitializeComponent();
             categoryList = CategoriesDB.GetCategories();
-
-            // Populate list
             populateList();
         }
-
 
         public void populateList()
         {
@@ -42,9 +32,9 @@ namespace Book_Store_Stock_Management_System
             {
                 if (categoryForm.ShowDialog() == DialogResult.OK)
                 {
-                    CategoriesOld newCategory = categoryForm.categoryDetail;
-                    categoryList.Add(newCategory);
-                    CategoriesDB.SaveCategories(categoryList);
+                    Category newCategory = categoryForm.categoryDetail;
+                    CategoriesDB.AddCategory(newCategory);
+                    categoryList = CategoriesDB.GetCategories();
                     populateList();
                 }
             }
@@ -58,9 +48,8 @@ namespace Book_Store_Stock_Management_System
                 return;
             }
 
-            ListViewItem selectedItem = listViewCategory.SelectedItems[0];
-            int categoryId = int.Parse(selectedItem.SubItems[0].Text);
-            CategoriesOld selectedCategory = categoryList.FirstOrDefault(b => b.CategoryId == categoryId);
+            int categoryId = int.Parse(listViewCategory.SelectedItems[0].SubItems[0].Text);
+            Category selectedCategory = categoryList.FirstOrDefault(c => c.CategoryId == categoryId);
 
             if (selectedCategory == null)
             {
@@ -72,9 +61,9 @@ namespace Book_Store_Stock_Management_System
             {
                 if (categoryForm.ShowDialog() == DialogResult.OK)
                 {
-                    selectedCategory.CategoryId = categoryForm.categoryDetail.CategoryId;
-                    selectedCategory.CategoryName = categoryForm.categoryDetail.CategoryName;
-                    CategoriesDB.SaveCategories(categoryList);
+                    Category updated = categoryForm.categoryDetail;
+                    CategoriesDB.UpdateCategory(updated);
+                    categoryList = CategoriesDB.GetCategories();
                     populateList();
                 }
             }
@@ -83,11 +72,14 @@ namespace Book_Store_Stock_Management_System
         private void buttonSearch_Click(object sender, EventArgs e)
         {
             string name = txtSearch.Text.Trim();
-            var filteredCategory = categoryList.Where(category => category.CategoryName.Contains(name, StringComparison.OrdinalIgnoreCase)).ToList();
-            filterList(filteredCategory);
+            var filtered = categoryList
+                .Where(c => c.CategoryName.Contains(name, StringComparison.OrdinalIgnoreCase))
+                .ToList();
+
+            filterList(filtered);
         }
 
-        public void filterList(List<CategoriesOld> categories)
+        public void filterList(List<Category> categories)
         {
             listViewCategory.Items.Clear();
 
@@ -107,9 +99,8 @@ namespace Book_Store_Stock_Management_System
                 return;
             }
 
-            ListViewItem selectedItem = listViewCategory.SelectedItems[0];
-            int categoryId = int.Parse(selectedItem.SubItems[0].Text);
-            CategoriesOld selectedCategory = categoryList.FirstOrDefault(b => b.CategoryId == categoryId);
+            int categoryId = int.Parse(listViewCategory.SelectedItems[0].SubItems[0].Text);
+            Category selectedCategory = categoryList.FirstOrDefault(c => c.CategoryId == categoryId);
 
             if (selectedCategory == null)
             {
@@ -117,17 +108,25 @@ namespace Book_Store_Stock_Management_System
                 return;
             }
 
-            DialogResult dialogResult = MessageBox.Show("Are you sure to delete " + selectedCategory.CategoryName + " ?",
-                                               "Confirm",
-                                               MessageBoxButtons.YesNo,
-                                               MessageBoxIcon.Question);
+            DialogResult dialogResult = MessageBox.Show("Are you sure to delete " + selectedCategory.CategoryName + "?",
+                "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (dialogResult == DialogResult.Yes)
             {
-                categoryList.Remove(selectedCategory);
-                CategoriesDB.SaveCategories(categoryList);
-                populateList();
+                string errorMessage;
+                bool success = CategoriesDB.DeleteCategory(categoryId, out errorMessage);
+
+                if (success)
+                {
+                    categoryList = CategoriesDB.GetCategories();
+                    populateList();
+                }
+                else
+                {
+                    MessageBox.Show(errorMessage, "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
+
         }
     }
 }

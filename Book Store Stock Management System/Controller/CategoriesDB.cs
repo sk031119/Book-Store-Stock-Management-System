@@ -1,67 +1,91 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Book_Store_Stock_Management_System.Models;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 
 namespace Book_Store_Stock_Management_System.Controller
 {
     public static class CategoriesDB
     {
-        private const string Dir = @"C:\Users\Public\Documents\";
-        private const string Path = Dir + "Categories.csv";
-        public static List<CategoriesOld> GetCategories()
+        // Get all categories
+        public static List<Category> GetCategories()
         {
-            List<CategoriesOld> categories = new List<CategoriesOld>();
-
-            EnsureDirectoryExists();
-            if (!File.Exists(Path))
+            using (var context = new CsdbContext())
             {
-                return categories;
-            }
-
-            StreamReader textIn = new StreamReader(
-                new FileStream(Path, FileMode.Open, FileAccess.Read));
-
-            while (textIn.Peek() != -1)
-            {
-                string row = textIn.ReadLine();
-                string[] columns = row.Split(',');
-                CategoriesOld category = new CategoriesOld();
-                category.CategoryId = int.Parse(columns[0]);
-                category.CategoryName = columns[1];
-                categories.Add(category);
-            }
-            textIn.Close();
-            return categories;
-        }
-
-        public static void SaveCategories(List<CategoriesOld> categories)
-        {
-            EnsureDirectoryExists();
-
-            using StreamWriter textOut = new StreamWriter(new FileStream(Path, FileMode.Create, FileAccess.Write));
-
-            foreach (CategoriesOld category in categories)
-            {
-                textOut.WriteLine($"{category.CategoryId},{category.CategoryName}");
-            }
-            textOut.Close();
-        }
-
-        private static void EnsureDirectoryExists()
-        {
-            if (!Directory.Exists(Dir))
-            {
-                Directory.CreateDirectory(Dir);
+                return context.Categories
+                    .OrderBy(c => c.CategoryName)
+                    .ToList();
             }
         }
 
-        public static int CountBooksInCategory(string category, List<BookOld> books)
+        // Add new category
+        public static void AddCategory(Category newCategory)
         {
-            return books.Count(book => book.Category == category);
+            using (var context = new CsdbContext())
+            {
+                context.Categories.Add(newCategory);
+                context.SaveChanges();
+            }
+        }
+
+        // Update existing category
+        public static void UpdateCategory(Category updatedCategory)
+        {
+            using (var context = new CsdbContext())
+            {
+                var existing = context.Categories.FirstOrDefault(c => c.CategoryId == updatedCategory.CategoryId);
+                if (existing != null)
+                {
+                    existing.CategoryName = updatedCategory.CategoryName;
+                    context.SaveChanges();
+                }
+            }
+        }
+
+        // Delete category
+        public static bool DeleteCategory(int categoryId, out string errorMessage)
+        {
+            errorMessage = string.Empty;
+
+            using (var context = new CsdbContext())
+            {
+                var category = context.Categories.FirstOrDefault(c => c.CategoryId == categoryId);
+                if (category != null)
+                {
+                    try
+                    {
+                        context.Categories.Remove(category);
+                        context.SaveChanges();
+                        return true;
+                    }
+                    catch (DbUpdateException dbEx)
+                    {
+                        if (dbEx.InnerException is SqlException sqlEx && sqlEx.Number == 547) // FK constraint
+                        {
+                            errorMessage = "Cannot delete this category because it has related records!";
+                        }
+                        else
+                        {
+                            errorMessage = "Database error: " + dbEx.Message;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        errorMessage = "Unexpected error: " + ex.Message;
+                    }
+                }
+            }
+
+            return false;
+        }
+
+
+        // Count books by category
+        public static int CountBooksInCategory(int categoryId)
+        {
+            using (var context = new CsdbContext())
+            {
+                return context.Books.Count(book => book.CategoryId == categoryId);
+            }
         }
     }
-
 }
-
