@@ -13,7 +13,7 @@ namespace Book_Store_Stock_Management_System
 {
     public partial class CategoriesTab : UserControl
     {
-        List<Categories> categoryList = new List<Categories>();
+        List<CategoriesOld> categoryList = new List<CategoriesOld>();
         public CategoriesTab()
         {
             InitializeComponent();
@@ -42,7 +42,7 @@ namespace Book_Store_Stock_Management_System
             {
                 if (categoryForm.ShowDialog() == DialogResult.OK)
                 {
-                    Categories newCategory = categoryForm.categoryDetail;
+                    CategoriesOld newCategory = categoryForm.categoryDetail;
                     categoryList.Add(newCategory);
                     CategoriesDB.SaveCategories(categoryList);
                     populateList();
@@ -60,7 +60,7 @@ namespace Book_Store_Stock_Management_System
 
             ListViewItem selectedItem = listViewCategory.SelectedItems[0];
             int categoryId = int.Parse(selectedItem.SubItems[0].Text);
-            Categories selectedCategory = categoryList.FirstOrDefault(b => b.CategoryId == categoryId);
+            CategoriesOld selectedCategory = categoryList.FirstOrDefault(b => b.CategoryId == categoryId);
 
             if (selectedCategory == null)
             {
@@ -87,7 +87,7 @@ namespace Book_Store_Stock_Management_System
             filterList(filteredCategory);
         }
 
-        public void filterList(List<Categories> categories)
+        public void filterList(List<CategoriesOld> categories)
         {
             listViewCategory.Items.Clear();
 
@@ -109,7 +109,7 @@ namespace Book_Store_Stock_Management_System
 
             ListViewItem selectedItem = listViewCategory.SelectedItems[0];
             int categoryId = int.Parse(selectedItem.SubItems[0].Text);
-            Categories selectedCategory = categoryList.FirstOrDefault(b => b.CategoryId == categoryId);
+            CategoriesOld selectedCategory = categoryList.FirstOrDefault(b => b.CategoryId == categoryId);
 
             if (selectedCategory == null)
             {

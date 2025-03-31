@@ -11,9 +11,9 @@ namespace Book_Store_Stock_Management_System.Controller
         private const string Dir = @"C:\Users\Public\Documents";
         private const string Path = Dir + "\\Author.csv";
 
-        public static List<Author> GetAuthor()
+        public static List<AuthorOld> GetAuthor()
         {
-            List<Author> authors = new List<Author>();
+            List<AuthorOld> authors = new List<AuthorOld>();
 
             // Check if the file exists, if not, create an empty file
             if (!File.Exists(Path))
@@ -32,7 +32,7 @@ namespace Book_Store_Stock_Management_System.Controller
                 {
                     string row = textIn.ReadLine();
                     string[] columns = row.Split(',');
-                    Author author = new Author();
+                    AuthorOld author = new AuthorOld();
                     author.FName = columns[0];
                     author.LName = columns[1];
                     authors.Add(author);
@@ -42,7 +42,7 @@ namespace Book_Store_Stock_Management_System.Controller
             return authors;
         }
 
-        public static void SaveAuthor(List<Author> authors)
+        public static void SaveAuthor(List<AuthorOld> authors)
         {
             // Ensure the directory exists
             Directory.CreateDirectory(Dir);
@@ -50,7 +50,7 @@ namespace Book_Store_Stock_Management_System.Controller
             using (StreamWriter textOut = new StreamWriter(
                 new FileStream(Path, FileMode.Create, FileAccess.Write)))
             {
-                foreach (Author author in authors)
+                foreach (AuthorOld author in authors)
                 {
                     textOut.Write(author.FName + ",");
                     textOut.WriteLine(author.LName);

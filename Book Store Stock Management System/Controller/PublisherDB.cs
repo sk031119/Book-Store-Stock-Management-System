@@ -11,9 +11,9 @@ namespace Book_Store_Stock_Management_System.Controller
         private const string Dir = @"C:\Users\Public\Documents";
         private const string Path = Dir + @"\Publishers.csv";
 
-        public static List<Publisher> GetPublishers()
+        public static List<PublisherOld> GetPublishers()
         {
-            List<Publisher> publishers = new List<Publisher>();
+            List<PublisherOld> publishers = new List<PublisherOld>();
 
             EnsureDirectoryExists();
             if (!File.Exists(Path))
@@ -29,7 +29,7 @@ namespace Book_Store_Stock_Management_System.Controller
                     string row = textIn.ReadLine();
                     string[] columns = row.Split(',');
 
-                    Publisher publisher = new Publisher();
+                    PublisherOld publisher = new PublisherOld();
                     if (columns.Length > 0) publisher.Name = columns[0];
                     if (columns.Length > 1) publisher.Address = columns[1];
                     if (columns.Length > 2) publisher.Phone = columns[2];
@@ -42,14 +42,14 @@ namespace Book_Store_Stock_Management_System.Controller
             return publishers;
         }
 
-        public static void SavePublishers(List<Publisher> publishers)
+        public static void SavePublishers(List<PublisherOld> publishers)
         {
             EnsureDirectoryExists();
 
             using (StreamWriter textOut = new StreamWriter(
                 new FileStream(Path, FileMode.Create, FileAccess.Write)))
             {
-                foreach (Publisher publisher in publishers)
+                foreach (PublisherOld publisher in publishers)
                 {
                     textOut.WriteLine($"{publisher.Name},{publisher.Address},{publisher.Phone},{publisher.ContactPerson}");
                 }

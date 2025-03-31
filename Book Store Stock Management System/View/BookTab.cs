@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using Book_Store_Stock_Management_System.Controller;
+using Book_Store_Stock_Management_System.Models;
 
 namespace Book_Store_Stock_Management_System
 {
@@ -15,12 +8,35 @@ namespace Book_Store_Stock_Management_System
     {
         List<Book> bookList = new List<Book>();
 
+        // To show values in list, not ID
+        private List<Author> authors;
+        private List<Category> categories;
+        private List<Publisher> publishers;
+
+
         public BookTab()
         {
             InitializeComponent();
-            bookList = BookDB.GetBooks();
 
-            // Populate list
+            // Adding ImageList
+            ImageList statusIcons = new ImageList();
+            statusIcons.ImageSize = new Size(16, 16);
+
+            statusIcons.Images.Add("low-stock", Image.FromFile("Images/error.png"));
+            statusIcons.Images.Add("out-of-stock", Image.FromFile("Images/warning.png"));
+
+            listVwBooks.SmallImageList = statusIcons;
+
+            // combo values
+            using (var context = new CsdbContext())
+            {
+                authors = context.Authors.ToList();
+                categories = context.Categories.ToList();
+                publishers = context.Publishers.ToList();
+            }
+
+            // Get data
+            bookList = BookDB.GetBooks();
             populateList();
         }
 
@@ -28,20 +44,21 @@ namespace Book_Store_Stock_Management_System
         {
             listVwBooks.Items.Clear();
 
-            var items = bookList.Select(book => new ListViewItem(book.ISBN)
+            foreach (var book in bookList)
             {
-                SubItems = {
-                        book.Title,
-                        book.Author,
-                        book.Category,
-                        book.Publisher,
-                        book.Price.ToString("C"),
-                        book.Count.ToString(),
-                        book.Status
-                    }
-            }).ToArray();
+                var item = new ListViewItem(book.Isbn.ToString());
+                item.SubItems.Add(book.Title);
+                item.SubItems.Add(authors.FirstOrDefault(a => a.AuthorId == book.AuthorId)?.FullName ?? "Unknown");
+                item.SubItems.Add(categories.FirstOrDefault(c => c.CategoryId == book.CategoryId)?.CategoryName ?? "Unknown");
+                item.SubItems.Add(publishers.FirstOrDefault(p => p.PublisherId == book.PublisherId)?.Name ?? "Unknown");
+                item.SubItems.Add(book.RetailPrice.ToString("C"));
+                item.SubItems.Add(book.StockCount.ToString());
+                item.SubItems.Add(book.StockStatus);
 
-            listVwBooks.Items.AddRange(items);
+                item.ImageKey = book.StockStatus.ToLower();
+
+                listVwBooks.Items.Add(item);
+            }
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
@@ -51,8 +68,8 @@ namespace Book_Store_Stock_Management_System
                 if (bookForm.ShowDialog() == DialogResult.OK)
                 {
                     Book newBook = bookForm.bookDetail;
-                    bookList.Add(newBook);
-                    BookDB.SaveBooks(bookList);
+                    BookDB.AddBook(newBook);
+                    bookList = BookDB.GetBooks();
                     populateList();
                 }
             }
@@ -66,9 +83,9 @@ namespace Book_Store_Stock_Management_System
                 return;
             }
 
-            ListViewItem selectedItem = listVwBooks.SelectedItems[0];
-            string isbn = selectedItem.SubItems[0].Text;
-            Book selectedBook = bookList.FirstOrDefault(b => b.ISBN == isbn);
+            string isbnText = listVwBooks.SelectedItems[0].SubItems[0].Text;
+            long isbn = long.Parse(isbnText);
+            Book selectedBook = bookList.FirstOrDefault(b => b.Isbn == isbn);
 
             if (selectedBook == null)
             {
@@ -76,20 +93,13 @@ namespace Book_Store_Stock_Management_System
                 return;
             }
 
-            // Calling BookForm as update 
             using (BookForm bookForm = new BookForm(selectedBook))
             {
                 if (bookForm.ShowDialog() == DialogResult.OK)
                 {
-                    selectedBook.Title = bookForm.bookDetail.Title;
-                    selectedBook.ISBN = bookForm.bookDetail.ISBN;
-                    selectedBook.Price = bookForm.bookDetail.Price;
-                    selectedBook.Count = bookForm.bookDetail.Count;
-                    selectedBook.Publisher = bookForm.bookDetail.Publisher;
-                    selectedBook.Author = bookForm.bookDetail.Author;
-                    selectedBook.Category = bookForm.bookDetail.Category;
-                    selectedBook.Status = bookForm.bookDetail.Status;
-                    BookDB.SaveBooks(bookList);
+                    Book updatedBook = bookForm.bookDetail;
+                    BookDB.UpdateBook(updatedBook);
+                    bookList = BookDB.GetBooks();
                     populateList();
                 }
             }
@@ -98,28 +108,8 @@ namespace Book_Store_Stock_Management_System
         private void buttonSearch_Click(object sender, EventArgs e)
         {
             string title = txtSearch.Text.Trim();
-            var filteredBook = bookList.Where(book => book.Title.Contains(title, StringComparison.OrdinalIgnoreCase)).ToList();
-            filterList(filteredBook);
-        }
-
-        public void filterList(List<Book> books)
-        {
-            listVwBooks.Items.Clear();
-
-            var items = books.Select(book => new ListViewItem(book.ISBN)
-            {
-                SubItems = {
-                        book.Title,
-                        book.Author,
-                        book.Category,
-                        book.Publisher,
-                        book.Price.ToString("C"),
-                        book.Count.ToString(),
-                        book.Status
-                    }
-            }).ToArray();
-
-            listVwBooks.Items.AddRange(items);
+            bookList = BookDB.SearchBooks(title);
+            populateList();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -130,9 +120,9 @@ namespace Book_Store_Stock_Management_System
                 return;
             }
 
-            ListViewItem selectedItem = listVwBooks.SelectedItems[0];
-            string isbn = selectedItem.SubItems[0].Text;
-            Book selectedBook = bookList.FirstOrDefault(b => b.ISBN == isbn);
+            string isbnText = listVwBooks.SelectedItems[0].SubItems[0].Text;
+            long isbn = long.Parse(isbnText);
+            Book selectedBook = bookList.FirstOrDefault(b => b.Isbn == isbn);
 
             if (selectedBook == null)
             {
@@ -147,8 +137,8 @@ namespace Book_Store_Stock_Management_System
 
             if (dialogResult == DialogResult.Yes)
             {
-                bookList.Remove(selectedBook);
-                BookDB.SaveBooks(bookList);
+                BookDB.DeleteBook(isbn);
+                bookList = BookDB.GetBooks();
                 populateList();
             }
         }
@@ -157,5 +147,6 @@ namespace Book_Store_Stock_Management_System
         {
 
         }
+
     }
 }

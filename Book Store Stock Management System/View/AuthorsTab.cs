@@ -21,11 +21,11 @@ namespace Book_Store_Stock_Management_System
 
         private void LoadAuthors()
         {
-            List<Author> authors = AuthorDB.GetAuthor();
+            List<AuthorOld> authors = AuthorDB.GetAuthor();
             PopulateList(authors);
         }
 
-        private void PopulateList(List<Author> authors)
+        private void PopulateList(List<AuthorOld> authors)
         {
             listViewAuthors.Items.Clear();
 
@@ -43,8 +43,8 @@ namespace Book_Store_Stock_Management_System
             {
                 if (authorForm.ShowDialog() == DialogResult.OK)
                 {
-                    Author newAuthor = authorForm.AuthorDetail;
-                    List<Author> authors = AuthorDB.GetAuthor();
+                    AuthorOld newAuthor = authorForm.AuthorDetail;
+                    List<AuthorOld> authors = AuthorDB.GetAuthor();
                     authors.Add(newAuthor);
                     AuthorDB.SaveAuthor(authors);
                     LoadAuthors();
@@ -63,8 +63,8 @@ namespace Book_Store_Stock_Management_System
             ListViewItem selectedItem = listViewAuthors.SelectedItems[0];
             string fName = selectedItem.SubItems[0].Text;
             string lName = selectedItem.SubItems[1].Text;
-            List<Author> authors = AuthorDB.GetAuthor();
-            Author selectedAuthor = authors.FirstOrDefault(a => a.FName == fName && a.LName == lName);
+            List<AuthorOld> authors = AuthorDB.GetAuthor();
+            AuthorOld selectedAuthor = authors.FirstOrDefault(a => a.FName == fName && a.LName == lName);
 
             if (selectedAuthor == null)
             {
@@ -87,7 +87,7 @@ namespace Book_Store_Stock_Management_System
         private void buttonSearch_Click(object sender, EventArgs e)
         {
             string name = txtSearch.Text.Trim();
-            List<Author> authors = AuthorDB.GetAuthor();
+            List<AuthorOld> authors = AuthorDB.GetAuthor();
             var filteredAuthors = authors.Where(author => author.FName.Contains(name, StringComparison.OrdinalIgnoreCase) || author.LName.Contains(name, StringComparison.OrdinalIgnoreCase)).ToList();
             PopulateList(filteredAuthors);
         }
@@ -103,8 +103,8 @@ namespace Book_Store_Stock_Management_System
             ListViewItem selectedItem = listViewAuthors.SelectedItems[0];
             string fName = selectedItem.SubItems[0].Text;
             string lName = selectedItem.SubItems[1].Text;
-            List<Author> authors = AuthorDB.GetAuthor();
-            Author selectedAuthor = authors.FirstOrDefault(a => a.FName == fName && a.LName == lName);
+            List<AuthorOld> authors = AuthorDB.GetAuthor();
+            AuthorOld selectedAuthor = authors.FirstOrDefault(a => a.FName == fName && a.LName == lName);
 
             if (selectedAuthor == null)
             {

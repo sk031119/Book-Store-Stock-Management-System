@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Book_Store_Stock_Management_System
 {
-    public class Publisher
+    public class PublisherOld
     {
         public string Name { get; set; }
         public string Address { get; set; }

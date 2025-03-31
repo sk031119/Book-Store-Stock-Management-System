@@ -14,7 +14,7 @@ namespace Book_Store_Stock_Management_System
     {
 
 
-        public Categories categoryDetail;
+        public CategoriesOld categoryDetail;
         Boolean isNew = true;
 
         private ErrorProvider errorProvider = new ErrorProvider();
@@ -22,7 +22,7 @@ namespace Book_Store_Stock_Management_System
         {
             InitializeComponent();
         }
-        public CategoryForm(Categories category)
+        public CategoryForm(CategoriesOld category)
         {
             InitializeComponent();
 
@@ -41,7 +41,7 @@ namespace Book_Store_Stock_Management_System
                 if (validateFields())
                 {
                     // Adding to list
-                    this.categoryDetail = new Categories
+                    this.categoryDetail = new CategoriesOld
                     {
                         CategoryId = int.Parse(txtId.Text),
                         CategoryName = txtName.Text,                      

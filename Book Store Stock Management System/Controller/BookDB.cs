@@ -1,69 +1,74 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Security.Policy;
-using System.Text;
-using System.Threading.Tasks;
-using static Book_Store_Stock_Management_System.Controller.BookDB;
+﻿using Book_Store_Stock_Management_System.Models;
 
 namespace Book_Store_Stock_Management_System.Controller
 {
     public static class BookDB
     {
-        private const string Dir = @"C:\Users\Public\Documents\";
-        private const string Path = Dir + "Books.csv";
+        // Get all books from the database
         public static List<Book> GetBooks()
         {
-            List<Book> books = new List<Book>();
-
-            EnsureDirectoryExists();
-            if (!File.Exists(Path))
+            using (var context = new CsdbContext())
             {
-                return books;
+                return context.Books
+                    .OrderBy(b => b.Title)
+                    .ToList();
             }
-
-            StreamReader textIn = new StreamReader(
-                new FileStream(Path, FileMode.Open, FileAccess.Read));
-
-            while (textIn.Peek() != -1)
-            {
-                string row = textIn.ReadLine();
-                string[] columns = row.Split(',');
-                Book book = new Book();
-                book.ISBN = columns[0];
-                book.Title = columns[1];
-                book.Author = columns[2];
-                book.Publisher = columns[3];
-                book.Price = decimal.Parse(columns[4]);
-                book.Count = int.Parse(columns[5]);
-                book.Category = columns[6];
-                book.Status = columns[7];
-                books.Add(book);
-            }
-
-            textIn.Close();
-            return books;
         }
 
-        public static void SaveBooks(List<Book> books)
+        // Add a new book to the database
+        public static void AddBook(Book newBook)
         {
-            EnsureDirectoryExists();
-
-            using StreamWriter textOut = new StreamWriter(new FileStream(Path, FileMode.Create, FileAccess.Write));
-
-            foreach (Book customer in books)
+            using (var context = new CsdbContext())
             {
-                textOut.WriteLine($"{customer.ISBN},{customer.Title},{customer.Author},{customer.Publisher},{customer.Price},{customer.Count},{customer.Category},{customer.Status}");
+                context.Books.Add(newBook);
+                context.SaveChanges();
             }
-            textOut.Close();
         }
 
-        private static void EnsureDirectoryExists()
+        // Update an existing book
+        public static void UpdateBook(Book updatedBook)
         {
-            if (!Directory.Exists(Dir))
+            using (var context = new CsdbContext())
             {
-                Directory.CreateDirectory(Dir);
+                var existingBook = context.Books.FirstOrDefault(b => b.Isbn == updatedBook.Isbn);
+                if (existingBook != null)
+                {
+                    existingBook.Title = updatedBook.Title;
+                    existingBook.RetailPrice = updatedBook.RetailPrice;
+                    existingBook.StockCount = updatedBook.StockCount;
+                    existingBook.StockStatus = updatedBook.StockStatus;
+                    existingBook.AuthorId = updatedBook.AuthorId;
+                    existingBook.CategoryId = updatedBook.CategoryId;
+                    existingBook.PublisherId = updatedBook.PublisherId;
+
+                    context.SaveChanges();
+                }
+            }
+        }
+
+        // Delete book
+        public static void DeleteBook(long isbn)
+        {
+            using (var context = new CsdbContext())
+            {
+                var book = context.Books.FirstOrDefault(b => b.Isbn == isbn);
+                if (book != null)
+                {
+                    context.Books.Remove(book);
+                    context.SaveChanges();
+                }
+            }
+        }
+
+        // Search by title
+        public static List<Book> SearchBooks(string title)
+        {
+            using (var context = new CsdbContext())
+            {
+                return context.Books
+                    .Where(b => b.Title.Contains(title))
+                    .OrderBy(b => b.Title)
+                    .ToList();
             }
         }
     }

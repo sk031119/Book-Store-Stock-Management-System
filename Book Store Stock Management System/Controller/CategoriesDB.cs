@@ -10,9 +10,9 @@ namespace Book_Store_Stock_Management_System.Controller
     {
         private const string Dir = @"C:\Users\Public\Documents\";
         private const string Path = Dir + "Categories.csv";
-        public static List<Categories> GetCategories()
+        public static List<CategoriesOld> GetCategories()
         {
-            List<Categories> categories = new List<Categories>();
+            List<CategoriesOld> categories = new List<CategoriesOld>();
 
             EnsureDirectoryExists();
             if (!File.Exists(Path))
@@ -27,7 +27,7 @@ namespace Book_Store_Stock_Management_System.Controller
             {
                 string row = textIn.ReadLine();
                 string[] columns = row.Split(',');
-                Categories category = new Categories();
+                CategoriesOld category = new CategoriesOld();
                 category.CategoryId = int.Parse(columns[0]);
                 category.CategoryName = columns[1];
                 categories.Add(category);
@@ -36,13 +36,13 @@ namespace Book_Store_Stock_Management_System.Controller
             return categories;
         }
 
-        public static void SaveCategories(List<Categories> categories)
+        public static void SaveCategories(List<CategoriesOld> categories)
         {
             EnsureDirectoryExists();
 
             using StreamWriter textOut = new StreamWriter(new FileStream(Path, FileMode.Create, FileAccess.Write));
 
-            foreach (Categories category in categories)
+            foreach (CategoriesOld category in categories)
             {
                 textOut.WriteLine($"{category.CategoryId},{category.CategoryName}");
             }
@@ -57,7 +57,7 @@ namespace Book_Store_Stock_Management_System.Controller
             }
         }
 
-        public static int CountBooksInCategory(string category, List<Book> books)
+        public static int CountBooksInCategory(string category, List<BookOld> books)
         {
             return books.Count(book => book.Category == category);
         }

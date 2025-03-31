@@ -21,11 +21,11 @@ namespace Book_Store_Stock_Management_System
 
         private void LoadPublishers()
         {
-            List<Publisher> publishers = PublisherDB.GetPublishers();
+            List<PublisherOld> publishers = PublisherDB.GetPublishers();
             PopulateList(publishers);
         }
 
-        private void PopulateList(List<Publisher> publishers)
+        private void PopulateList(List<PublisherOld> publishers)
         {
             listViewPublishers.Items.Clear();
 
@@ -43,8 +43,8 @@ namespace Book_Store_Stock_Management_System
             {
                 if (publisherForm.ShowDialog() == DialogResult.OK)
                 {
-                    Publisher newPublisher = publisherForm.PublisherDetail;
-                    List<Publisher> publishers = PublisherDB.GetPublishers();
+                    PublisherOld newPublisher = publisherForm.PublisherDetail;
+                    List<PublisherOld> publishers = PublisherDB.GetPublishers();
                     publishers.Add(newPublisher);
                     PublisherDB.SavePublishers(publishers);
                     LoadPublishers();
@@ -65,8 +65,8 @@ namespace Book_Store_Stock_Management_System
             string address = selectedItem.SubItems[1].Text;
             string phone = selectedItem.SubItems[2].Text;
 
-            List<Publisher> publishers = PublisherDB.GetPublishers();
-            Publisher selectedPublisher = publishers.FirstOrDefault(p => p.Name == name && p.Address == address && p.Phone == phone);
+            List<PublisherOld> publishers = PublisherDB.GetPublishers();
+            PublisherOld selectedPublisher = publishers.FirstOrDefault(p => p.Name == name && p.Address == address && p.Phone == phone);
 
             if (selectedPublisher == null)
             {
@@ -91,7 +91,7 @@ namespace Book_Store_Stock_Management_System
         private void buttonSearch_Click(object sender, EventArgs e)
         {
             string searchText = txtSearch.Text.Trim();
-            List<Publisher> publishers = PublisherDB.GetPublishers();
+            List<PublisherOld> publishers = PublisherDB.GetPublishers();
             var filteredPublishers = publishers.Where(publisher =>
                 publisher.Name.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
                 publisher.Address.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
@@ -113,8 +113,8 @@ namespace Book_Store_Stock_Management_System
             string address = selectedItem.SubItems[1].Text;
             string phone = selectedItem.SubItems[2].Text;
 
-            List<Publisher> publishers = PublisherDB.GetPublishers();
-            Publisher selectedPublisher = publishers.FirstOrDefault(p => p.Name == name && p.Address == address && p.Phone == phone);
+            List<PublisherOld> publishers = PublisherDB.GetPublishers();
+            PublisherOld selectedPublisher = publishers.FirstOrDefault(p => p.Name == name && p.Address == address && p.Phone == phone);
 
             if (selectedPublisher == null)
             {

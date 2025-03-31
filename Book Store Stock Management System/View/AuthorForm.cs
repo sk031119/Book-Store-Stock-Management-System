@@ -12,7 +12,7 @@ namespace Book_Store_Stock_Management_System
 {
     public partial class AuthorForm : Form
     {
-        public Author AuthorDetail;
+        public AuthorOld AuthorDetail;
         private bool isNew;
 
         public AuthorForm()
@@ -21,7 +21,7 @@ namespace Book_Store_Stock_Management_System
             isNew = true;
         }
 
-        public AuthorForm(Author author) : this()
+        public AuthorForm(AuthorOld author) : this()
         {
             AuthorDetail = author;
             txtFName.Text = author.FName;
@@ -35,7 +35,7 @@ namespace Book_Store_Stock_Management_System
             {
                 if (isNew)
                 {
-                    AuthorDetail = new Author();
+                    AuthorDetail = new AuthorOld();
                 }
 
                 AuthorDetail.FName = txtFName.Text;

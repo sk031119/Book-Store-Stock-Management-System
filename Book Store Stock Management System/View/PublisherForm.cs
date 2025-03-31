@@ -12,7 +12,7 @@ namespace Book_Store_Stock_Management_System
 {
     public partial class PublisherForm : Form
     {
-        public Publisher PublisherDetail;
+        public PublisherOld PublisherDetail;
         private bool isNew;
         private ErrorProvider errorProvider = new ErrorProvider();
 
@@ -22,7 +22,7 @@ namespace Book_Store_Stock_Management_System
             isNew = true;
         }
 
-        public PublisherForm(Publisher publisher) : this()
+        public PublisherForm(PublisherOld publisher) : this()
         {
             PublisherDetail = publisher;
             txtName.Text = publisher.Name;
@@ -38,7 +38,7 @@ namespace Book_Store_Stock_Management_System
             {
                 if (isNew)
                 {
-                    PublisherDetail = new Publisher();
+                    PublisherDetail = new PublisherOld();
                 }
 
                 PublisherDetail.Name = txtName.Text;

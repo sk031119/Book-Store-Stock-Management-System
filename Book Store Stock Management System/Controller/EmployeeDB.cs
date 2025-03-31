@@ -10,16 +10,16 @@ namespace Book_Store_Stock_Management_System.Controller
     {
         private const string Dir = @"C:\Users\galaa\Downloads\Ari\C#\Files\";
         private const string Path = Dir + "Employees.csv";
-        public static List<Employee> GetEmployees()
+        public static List<EmployeeOld> GetEmployees()
         {
-            List<Employee> employees = new List<Employee>();
+            List<EmployeeOld> employees = new List<EmployeeOld>();
             StreamReader textIn = new StreamReader(
                 new FileStream(Path, FileMode.Open, FileAccess.Read));
             while (textIn.Peek() != -1)
             {
                 string row = textIn.ReadLine();
                 string[] columns = row.Split(',');
-                Employee employee = new Employee();
+                EmployeeOld employee = new EmployeeOld();
                 employee.FName = columns[0];
                 employee.LName = columns[1];
                 employee.Username = columns[2];
@@ -30,11 +30,11 @@ namespace Book_Store_Stock_Management_System.Controller
             textIn.Close();
             return employees;
         }
-        public static void SaveEmployees(List<Employee> employees)
+        public static void SaveEmployees(List<EmployeeOld> employees)
         {
             StreamWriter textOut = new StreamWriter(
                 new FileStream(Path, FileMode.Create, FileAccess.Write));
-            foreach (Employee employee in employees)
+            foreach (EmployeeOld employee in employees)
             {
                 textOut.Write(employee.FName + ",");
                 textOut.Write(employee.LName + ",");

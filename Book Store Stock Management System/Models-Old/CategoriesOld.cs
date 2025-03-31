@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Book_Store_Stock_Management_System
 {
-    public class Categories
+    public class CategoriesOld
     {
         public int CategoryId { get; set; }
         public string CategoryName { get; set; }

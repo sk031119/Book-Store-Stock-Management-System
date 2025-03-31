@@ -21,4 +21,8 @@ public partial class Author
 
     [InverseProperty("Author")]
     public virtual ICollection<Book> Books { get; set; } = new List<Book>();
+
+    // Will use it in combo
+    public string FullName => FirstName + " " + LastName;
+
 }

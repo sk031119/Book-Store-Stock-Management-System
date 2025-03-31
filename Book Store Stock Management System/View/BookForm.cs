@@ -1,190 +1,141 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using Book_Store_Stock_Management_System.Models;
 
 namespace Book_Store_Stock_Management_System
 {
     public partial class BookForm : Form
     {
         public Book bookDetail;
-        Boolean isNew = true;
-
+        private bool isNew = true;
         private ErrorProvider errorProvider = new ErrorProvider();
 
-        // Arrays for comboboxes
-        string[] categories = { "Cooking", "Computer", "Horror", "Fiction", "Romance novel" };
-        string[] authors = { "Stephen King", "William Shakespeare", "Leo Tolstoy", "Alexandre Dumas", "Victor Hugo" };
-        string[] publishers = { "Penguin Random House", "HarperCollins", "Simon & Schuster", "Macmillan", "Hachette Book Group" };
-        string[] status = { "In-stock", "Low-stock", "Out-of-stock" };
+        // Dropdown data from DB
+        private List<Author> authors;
+        private List<Category> categories;
+        private List<Publisher> publishers;
+        private readonly string[] status = { "In-stock", "Low-stock", "Out-of-stock" };
 
         public BookForm()
         {
             InitializeComponent();
-
-            // Populating combos
-            populateCombos();
+            isNew = true;
+            LoadComboData();
         }
 
         public BookForm(Book book)
         {
             InitializeComponent();
-
-            this.isNew = false;
-
-            // Populating combos
-            populateCombos();
+            isNew = false;
+            bookDetail = book;
             txtISBN.Enabled = false;
 
-            bookDetail = book;
+            // Populate combo
+            LoadComboData();
+
+            // Detail info
             txtTitle.Text = book.Title;
-            txtISBN.Text = book.ISBN;
-            txtPrice.Text = book.Price.ToString();
-            txtCount.Text = book.Count.ToString();
-            comboPublisher.SelectedItem = book.Publisher;
-            comboAuthor.SelectedItem = book.Author;
-            comboCategory.SelectedItem = book.Category;
-            comboStatus.SelectedItem = book.Status;
+            txtISBN.Text = book.Isbn.ToString();
+            txtPrice.Value = book.RetailPrice;
+            txtCount.Value = book.StockCount;
+            comboAuthor.SelectedValue = book.AuthorId;
+            comboCategory.SelectedValue = book.CategoryId;
+            comboPublisher.SelectedValue = book.PublisherId;
+            comboStatus.SelectedItem = book.StockStatus;
         }
 
-        private void populateCombos()
+        private void LoadComboData()
         {
-            comboAuthor.Items.AddRange(authors);
-            comboCategory.Items.AddRange(categories);
-            comboPublisher.Items.AddRange(publishers);
+            using (var context = new CsdbContext())
+            {
+                authors = context.Authors.ToList();
+                categories = context.Categories.ToList();
+                publishers = context.Publishers.ToList();
+            }
+
+            comboAuthor.DataSource = authors;
+            comboAuthor.DisplayMember = "FullName";
+            comboAuthor.ValueMember = "AuthorId";
+
+            comboCategory.DataSource = categories;
+            comboCategory.DisplayMember = "CategoryName";
+            comboCategory.ValueMember = "CategoryId";
+
+            comboPublisher.DataSource = publishers;
+            comboPublisher.DisplayMember = "Name";
+            comboPublisher.ValueMember = "PublisherId";
+
             comboStatus.Items.AddRange(status);
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            try
-            {
-                // Validating inputs
-                if (validateFields())
-                {
-                    // Adding to list
-                    this.bookDetail = new Book
-                    {
-                        Title = txtTitle.Text,
-                        ISBN = txtISBN.Text,
-                        Price = Convert.ToDecimal(txtPrice.Text),
-                        Count = Convert.ToInt16(txtCount.Text),
-                        Status = comboStatus.SelectedItem.ToString(),
-                        Author = comboAuthor.SelectedItem.ToString(),
-                        Category = comboCategory.SelectedItem.ToString(),
-                        Publisher = comboPublisher.SelectedItem.ToString()
-                    };
-                    MessageBox.Show(isNew ? "Successfully added" : "Successfully updated");
-                    this.DialogResult = DialogResult.OK;
-                    this.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error");
-            }
+            if (!validateFields()) return;
+
+            long isbn = long.Parse(txtISBN.Text);
+
+            bookDetail = bookDetail ?? new Book();
+            bookDetail.Isbn = isbn;
+            bookDetail.Title = txtTitle.Text;
+            bookDetail.RetailPrice = txtPrice.Value;
+            bookDetail.StockCount = (int)txtCount.Value;
+            bookDetail.StockStatus = comboStatus.SelectedItem.ToString();
+            bookDetail.AuthorId = (int)comboAuthor.SelectedValue;
+            bookDetail.CategoryId = (int)comboCategory.SelectedValue;
+            bookDetail.PublisherId = (int)comboPublisher.SelectedValue;
+
+            MessageBox.Show(isNew ? "Successfully added" : "Successfully updated");
+            DialogResult = DialogResult.OK;
+            Close();
         }
 
-        private Boolean validateFields()
+        private bool validateFields()
         {
-            // Clear previous error messages
             errorProvider.Clear();
 
-            // Title
-            if (string.IsNullOrEmpty(txtTitle.Text))
+            if (string.IsNullOrWhiteSpace(txtTitle.Text))
             {
                 errorProvider.SetError(txtTitle, "Enter the title!");
                 return false;
             }
 
-            // ISBN
-            if (string.IsNullOrEmpty(txtISBN.Text))
+            if (string.IsNullOrWhiteSpace(txtISBN.Text) || !long.TryParse(txtISBN.Text, out _))
             {
-                errorProvider.SetError(txtISBN, "Enter the ISBN!");
+                errorProvider.SetError(txtISBN, "Enter a valid ISBN!");
                 return false;
             }
 
-            // Price
-            decimal priceVal = 0;
-            if (string.IsNullOrEmpty(txtPrice.Text))
+            if (txtPrice.Value <= 0)
             {
-                errorProvider.SetError(txtPrice, "Enter the price!");
-                return false;
-            }
-            else if (!Decimal.TryParse(txtPrice.Text, out priceVal) || priceVal <= 0)
-            {
-                errorProvider.SetError(txtPrice, "Count should be more than 0!");
+                errorProvider.SetError(txtPrice, "Price must be greater than 0!");
                 return false;
             }
 
-            // Count
-            int countVal = 0;
-            if (string.IsNullOrEmpty(txtCount.Text))
+            if (txtCount.Value < 0)
             {
-                errorProvider.SetError(txtCount, "Enter the count!");
-                return false;
-            }
-            else if (!int.TryParse(txtCount.Text, out countVal) || countVal <= 0)
-            {
-                errorProvider.SetError(txtCount, "Count should be more than 0!");
+                errorProvider.SetError(txtCount, "Stock count cannot be negative!");
                 return false;
             }
 
-            // Category
-            if (comboCategory.SelectedItem == null || comboCategory.SelectedIndex < 0)
+            if (comboAuthor.SelectedIndex < 0 || comboCategory.SelectedIndex < 0 || comboPublisher.SelectedIndex < 0 || comboStatus.SelectedIndex < 0)
             {
-                errorProvider.SetError(comboCategory, "Select category!");
+                MessageBox.Show("Please select all dropdown values!", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
-            // Author
-            if (comboAuthor.SelectedItem == null || comboAuthor.SelectedIndex < 0)
-            {
-                errorProvider.SetError(comboAuthor, "Select author!");
-                return false;
-            }
-
-            // Publisher
-            if (comboPublisher.SelectedItem == null || comboPublisher.SelectedIndex < 0)
-            {
-                errorProvider.SetError(comboPublisher, "Select publisher!");
-                return false;
-            }
-
-            // Status
-            if (comboStatus.SelectedItem == null || comboStatus.SelectedIndex < 0)
-            {
-                errorProvider.SetError(comboStatus, "Select status!");
-                return false;
-            }
             return true;
         }
-        private void clearFields()
+
+        private void buttonClear_Click(object sender, EventArgs e)
         {
             txtTitle.Clear();
             txtISBN.Clear();
-            txtCount.Value = 0;
             txtPrice.Value = 0;
-
+            txtCount.Value = 0;
             comboAuthor.SelectedIndex = -1;
             comboCategory.SelectedIndex = -1;
             comboPublisher.SelectedIndex = -1;
             comboStatus.SelectedIndex = -1;
         }
 
-        private void buttonClear_Click(object sender, EventArgs e)
-        {
-            clearFields();
-        }
-
-        private void BookForm_Load(object sender, EventArgs e)
-        {
-
-        }
+        private void BookForm_Load(object sender, EventArgs e) { }
     }
 }

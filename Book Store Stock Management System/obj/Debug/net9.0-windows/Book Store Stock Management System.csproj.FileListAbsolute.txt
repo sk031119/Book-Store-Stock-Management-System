@@ -208,3 +208,5 @@ C:\Users\galaa\Downloads\Ari\C#\Book-Store-Stock-Management-System\Book Store St
 C:\Users\galaa\Downloads\Ari\C#\Book-Store-Stock-Management-System\Book Store Stock Management System\bin\Debug\net9.0-windows\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
 C:\Users\galaa\Downloads\Ari\C#\Book-Store-Stock-Management-System\Book Store Stock Management System\obj\Debug\net9.0-windows\Book Store Stock Management System.csproj.AssemblyReference.cache
 C:\Users\galaa\Downloads\Ari\C#\Book-Store-Stock-Management-System\Book Store Stock Management System\obj\Debug\net9.0-windows\Book Sto.2C254333.Up2Date
+C:\Users\galaa\Downloads\Ari\C#\Book-Store-Stock-Management-System\Book Store Stock Management System\bin\Debug\net9.0-windows\Images\error.png
+C:\Users\galaa\Downloads\Ari\C#\Book-Store-Stock-Management-System\Book Store Stock Management System\bin\Debug\net9.0-windows\Images\warning.png
