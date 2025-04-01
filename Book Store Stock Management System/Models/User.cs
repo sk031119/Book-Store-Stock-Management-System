@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Book_Store_Stock_Management_System.Models;
 
-[Index("Username", Name = "UQ__Users__536C85E410A8FDBC", IsUnique = true)]
+[Index("Username", Name = "UQ__Users__536C85E4BB98B443", IsUnique = true)]
 public partial class User
 {
     [Key]
@@ -16,6 +16,7 @@ public partial class User
     [Unicode(false)]
     public string Username { get; set; } = null!;
 
+    [Column("PASSWORD")]
     [StringLength(255)]
     [Unicode(false)]
     public string Password { get; set; } = null!;

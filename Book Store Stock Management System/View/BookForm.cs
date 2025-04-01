@@ -12,7 +12,7 @@ namespace Book_Store_Stock_Management_System
         private List<Author> authors;
         private List<Category> categories;
         private List<Publisher> publishers;
-        private readonly string[] status = { "In-stock", "Low-stock", "Out-of-stock" };
+        private readonly string[] status = { "in-stock", "low-stock", "out-of-stock" };
 
         public BookForm()
         {

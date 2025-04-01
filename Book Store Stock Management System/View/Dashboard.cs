@@ -50,12 +50,12 @@ namespace Book_Store_Stock_Management_System
             tabCategory.Controls.Add(categoriesTab);
 
             // Removing tabs based on role
-            if (userRole == UserRole.User)
+            if (userRole == UserRole.EMPLOYEE)
             {
                 tabControl.TabPages.Remove(tabReports);
                 tabControl.TabPages.Remove(tabEmployees);
             }
-            else if (userRole == UserRole.Guest)
+            else if (userRole == UserRole.GUEST)
             {
                 tabControl.TabPages.Remove(tabAuthors);
                 tabControl.TabPages.Remove(tabPublishers);

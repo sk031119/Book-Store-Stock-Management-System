@@ -37,69 +37,59 @@ public partial class CsdbContext : DbContext
     {
         modelBuilder.Entity<Author>(entity =>
         {
-            entity.HasKey(e => e.AuthorId).HasName("PK__Authors__70DAFC340B3B9E0E");
-
-            entity.Property(e => e.AuthorId).ValueGeneratedNever();
+            entity.HasKey(e => e.AuthorId).HasName("PK__Authors__70DAFC34FBD58B4D");
         });
 
         modelBuilder.Entity<Book>(entity =>
         {
-            entity.HasKey(e => e.Isbn).HasName("PK__Books__447D36EB1207019F");
+            entity.HasKey(e => e.Isbn).HasName("PK__Books__447D36EB4BC1C9B4");
 
             entity.Property(e => e.Isbn).ValueGeneratedNever();
 
             entity.HasOne(d => d.Author).WithMany(p => p.Books)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Books__AuthorId__68487DD7");
+                .HasConstraintName("FK__Books__AuthorId__0F624AF8");
 
             entity.HasOne(d => d.Category).WithMany(p => p.Books)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Books__CategoryI__693CA210");
+                .HasConstraintName("FK__Books__CategoryI__10566F31");
 
             entity.HasOne(d => d.Publisher).WithMany(p => p.Books)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Books__Publisher__6A30C649");
+                .HasConstraintName("FK__Books__Publisher__114A936A");
         });
 
         modelBuilder.Entity<Category>(entity =>
         {
-            entity.HasKey(e => e.CategoryId).HasName("PK__Categori__19093A0BC37E0BE9");
-
-            entity.Property(e => e.CategoryId).ValueGeneratedNever();
+            entity.HasKey(e => e.CategoryId).HasName("PK__Categori__19093A0B70947B04");
         });
 
         modelBuilder.Entity<Publisher>(entity =>
         {
-            entity.HasKey(e => e.PublisherId).HasName("PK__Publishe__4C657FABA3434CC2");
-
-            entity.Property(e => e.PublisherId).ValueGeneratedNever();
+            entity.HasKey(e => e.PublisherId).HasName("PK__Publishe__4C657FABC05C0C50");
         });
 
         modelBuilder.Entity<Supplier>(entity =>
         {
-            entity.HasKey(e => e.SupplierId).HasName("PK__Supplier__4BE666B44CBE1602");
-
-            entity.Property(e => e.SupplierId).ValueGeneratedNever();
+            entity.HasKey(e => e.SupplierId).HasName("PK__Supplier__4BE666B4BB11FE4B");
         });
 
         modelBuilder.Entity<Transaction>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Transact__3214EC07C2C3AA4B");
+            entity.HasKey(e => e.Id).HasName("PK__Transact__3214EC07FF9660E5");
 
-            entity.HasOne(d => d.IsbnNavigation).WithMany(p => p.Transactions).HasConstraintName("FK__Transactio__ISBN__6E01572D");
+            entity.HasOne(d => d.IsbnNavigation).WithMany(p => p.Transactions).HasConstraintName("FK__Transactio__ISBN__151B244E");
 
-            entity.HasOne(d => d.Supplier).WithMany(p => p.Transactions).HasConstraintName("FK__Transacti__Suppl__6FE99F9F");
+            entity.HasOne(d => d.Supplier).WithMany(p => p.Transactions).HasConstraintName("FK__Transacti__Suppl__17036CC0");
 
             entity.HasOne(d => d.User).WithMany(p => p.Transactions)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Transacti__UserI__6EF57B66");
+                .HasConstraintName("FK__Transacti__UserI__160F4887");
         });
 
         modelBuilder.Entity<User>(entity =>
         {
-            entity.HasKey(e => e.UserId).HasName("PK__Users__1788CC4CF4D93A00");
-
-            entity.Property(e => e.UserId).ValueGeneratedNever();
+            entity.HasKey(e => e.UserId).HasName("PK__Users__1788CC4C0BEC9104");
         });
 
         OnModelCreatingPartial(modelBuilder);

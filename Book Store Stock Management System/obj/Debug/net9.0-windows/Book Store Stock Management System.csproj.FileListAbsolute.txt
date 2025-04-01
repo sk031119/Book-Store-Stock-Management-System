@@ -216,3 +216,4 @@ C:\Users\galaa\Downloads\Ari\C#\Book-Store-Stock-Management-System\Book Store St
 C:\Users\galaa\Downloads\Ari\C#\Book-Store-Stock-Management-System\Book Store Stock Management System\bin\Debug\net9.0-windows\runtimes\win-x86\native\sni.dll
 C:\Users\galaa\Downloads\Ari\C#\Book-Store-Stock-Management-System\Book Store Stock Management System\bin\Debug\net9.0-windows\runtimes\unix\lib\net8.0\System.Data.SqlClient.dll
 C:\Users\galaa\Downloads\Ari\C#\Book-Store-Stock-Management-System\Book Store Stock Management System\bin\Debug\net9.0-windows\runtimes\win\lib\net8.0\System.Data.SqlClient.dll
+C:\Users\galaa\Downloads\Ari\C#\Book-Store-Stock-Management-System\Book Store Stock Management System\obj\Debug\net9.0-windows\Book_Store_Stock_Management_System.UserForm.resources

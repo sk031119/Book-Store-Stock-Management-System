@@ -63,11 +63,11 @@ namespace Book_Store_Stock_Management_System
         private UserRole getUserRole()
         {
             if (loggedInUserName == "admin")
-                return UserRole.Admin;
+                return UserRole.ADMIN;
             else if (loggedInUserName == "user")
-                return UserRole.User;
+                return UserRole.EMPLOYEE;
             else
-                return UserRole.Guest;
+                return UserRole.GUEST;
         }
     }
 }

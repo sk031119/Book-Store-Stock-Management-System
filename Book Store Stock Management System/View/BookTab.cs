@@ -22,8 +22,8 @@ namespace Book_Store_Stock_Management_System
             ImageList statusIcons = new ImageList();
             statusIcons.ImageSize = new Size(16, 16);
 
-            statusIcons.Images.Add("low-stock", Image.FromFile("Images/error.png"));
-            statusIcons.Images.Add("out-of-stock", Image.FromFile("Images/warning.png"));
+            statusIcons.Images.Add("low-stock", Image.FromFile("Images/warning.png"));
+            statusIcons.Images.Add("out-of-stock", Image.FromFile("Images/error.png"));
 
             listVwBooks.SmallImageList = statusIcons;
 

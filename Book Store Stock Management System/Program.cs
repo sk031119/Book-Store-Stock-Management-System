@@ -13,7 +13,7 @@ namespace Book_Store_Stock_Management_System
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             //Application.Run(new LoginForm());
-            Application.Run(new Dashboard("Admin", UserRole.Admin));
+            Application.Run(new Dashboard("Admin", UserRole.ADMIN));
 
         }
     }

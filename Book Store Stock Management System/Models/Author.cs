@@ -24,5 +24,4 @@ public partial class Author
 
     // Will use it in combo
     public string FullName => FirstName + " " + LastName;
-
 }
