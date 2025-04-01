@@ -106,7 +106,8 @@
             listViewCategory.Sorting = SortOrder.Ascending;
             listViewCategory.TabIndex = 24;
             listViewCategory.UseCompatibleStateImageBehavior = false;
-            listViewCategory.View = View.Details;
+            listViewCategory.View = System.Windows.Forms.View.Details;
+            listViewCategory.DoubleClick += buttonUpdate_Click;
             // 
             // columnCategoryId
             // 

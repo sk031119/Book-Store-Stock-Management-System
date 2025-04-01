@@ -41,10 +41,9 @@
             // 
             // btnDelete
             // 
-            btnDelete.Location = new Point(275, 484);
-            btnDelete.Margin = new Padding(4);
+            btnDelete.Location = new Point(214, 382);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(121, 29);
+            btnDelete.Size = new Size(94, 23);
             btnDelete.TabIndex = 23;
             btnDelete.Text = "Delete Author";
             btnDelete.UseVisualStyleBackColor = true;
@@ -52,10 +51,9 @@
             // 
             // buttonSearch
             // 
-            buttonSearch.Location = new Point(258, 15);
-            buttonSearch.Margin = new Padding(4);
+            buttonSearch.Location = new Point(201, 12);
             buttonSearch.Name = "buttonSearch";
-            buttonSearch.Size = new Size(96, 29);
+            buttonSearch.Size = new Size(75, 23);
             buttonSearch.TabIndex = 22;
             buttonSearch.Text = "Search";
             buttonSearch.UseVisualStyleBackColor = true;
@@ -64,27 +62,24 @@
             // lblSearch
             // 
             lblSearch.AutoSize = true;
-            lblSearch.Location = new Point(13, 19);
-            lblSearch.Margin = new Padding(4, 0, 4, 0);
+            lblSearch.Location = new Point(10, 15);
             lblSearch.Name = "lblSearch";
-            lblSearch.Size = new Size(54, 19);
+            lblSearch.Size = new Size(42, 15);
             lblSearch.TabIndex = 21;
             lblSearch.Text = "Name:";
             // 
             // txtSearch
             // 
-            txtSearch.Location = new Point(67, 15);
-            txtSearch.Margin = new Padding(4);
+            txtSearch.Location = new Point(52, 12);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(163, 27);
+            txtSearch.Size = new Size(128, 23);
             txtSearch.TabIndex = 20;
             // 
             // buttonUpdate
             // 
-            buttonUpdate.Location = new Point(134, 484);
-            buttonUpdate.Margin = new Padding(4);
+            buttonUpdate.Location = new Point(104, 382);
             buttonUpdate.Name = "buttonUpdate";
-            buttonUpdate.Size = new Size(122, 29);
+            buttonUpdate.Size = new Size(95, 23);
             buttonUpdate.TabIndex = 19;
             buttonUpdate.Text = "Update Author";
             buttonUpdate.UseVisualStyleBackColor = true;
@@ -92,10 +87,9 @@
             // 
             // buttonAdd
             // 
-            buttonAdd.Location = new Point(13, 484);
-            buttonAdd.Margin = new Padding(4);
+            buttonAdd.Location = new Point(10, 382);
             buttonAdd.Name = "buttonAdd";
-            buttonAdd.Size = new Size(96, 29);
+            buttonAdd.Size = new Size(75, 23);
             buttonAdd.TabIndex = 18;
             buttonAdd.Text = "Add Author";
             buttonAdd.UseVisualStyleBackColor = true;
@@ -106,14 +100,13 @@
             listViewAuthors.Columns.AddRange(new ColumnHeader[] { columnFName, columnLName });
             listViewAuthors.FullRowSelect = true;
             listViewAuthors.GridLines = true;
-            listViewAuthors.Location = new Point(13, 65);
-            listViewAuthors.Margin = new Padding(4);
+            listViewAuthors.Location = new Point(10, 51);
             listViewAuthors.Name = "listViewAuthors";
-            listViewAuthors.Size = new Size(1021, 397);
+            listViewAuthors.Size = new Size(795, 314);
             listViewAuthors.Sorting = SortOrder.Ascending;
             listViewAuthors.TabIndex = 17;
             listViewAuthors.UseCompatibleStateImageBehavior = false;
-            listViewAuthors.View = View.Details;
+            listViewAuthors.View = System.Windows.Forms.View.Details;
             // 
             // columnFName
             // 
@@ -127,7 +120,7 @@
             // 
             // AuthorsTab
             // 
-            AutoScaleDimensions = new SizeF(9F, 19F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(btnDelete);
             Controls.Add(buttonSearch);
@@ -136,9 +129,8 @@
             Controls.Add(buttonUpdate);
             Controls.Add(buttonAdd);
             Controls.Add(listViewAuthors);
-            Margin = new Padding(4);
             Name = "AuthorsTab";
-            Size = new Size(1057, 542);
+            Size = new Size(822, 428);
             Load += AuthorsTab_Load;
             ResumeLayout(false);
             PerformLayout();

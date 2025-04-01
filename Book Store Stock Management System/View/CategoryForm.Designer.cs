@@ -82,6 +82,7 @@
             // 
             // txtId
             // 
+            txtId.Enabled = false;
             txtId.Location = new Point(146, 35);
             txtId.Name = "txtId";
             txtId.Size = new Size(118, 23);
@@ -96,7 +97,7 @@
             Controls.Add(buttonClear);
             Controls.Add(label1);
             Controls.Add(label2);
-            Controls.Add(this.txtName);
+            Controls.Add(txtName);
             Controls.Add(txtId);
             Name = "CategoryForm";
             Text = "Category";
@@ -106,7 +107,7 @@
 
         #endregion
 
-      
+
         private Button buttonSave;
         private Button buttonClear;
         private Label label1;

@@ -113,7 +113,8 @@
             listVwBooks.Sorting = SortOrder.Ascending;
             listVwBooks.TabIndex = 17;
             listVwBooks.UseCompatibleStateImageBehavior = false;
-            listVwBooks.View = View.Details;
+            listVwBooks.View = System.Windows.Forms.View.Details;
+            listVwBooks.DoubleClick += buttonUpdate_Click;
             // 
             // columnIsbn
             // 
@@ -168,7 +169,7 @@
             Controls.Add(listVwBooks);
             Name = "BookTab";
             Size = new Size(822, 428);
-            Load += BookTab_Load;
+            Enter += buttonSearch_Click;
             ResumeLayout(false);
             PerformLayout();
         }

@@ -22,18 +22,15 @@ namespace Book_Store_Stock_Management_System
             categoryDetail = category;
             txtId.Text = category.CategoryId.ToString();
             txtName.Text = category.CategoryName;
-            txtId.Enabled = false;
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
             if (!validateFields()) return;
 
-            int id = int.Parse(txtId.Text);
             string name = txtName.Text.Trim();
 
             categoryDetail = categoryDetail ?? new Category();
-            categoryDetail.CategoryId = id;
             categoryDetail.CategoryName = name;
 
             MessageBox.Show(isNew ? "Successfully added" : "Successfully updated");
@@ -44,13 +41,6 @@ namespace Book_Store_Stock_Management_System
         private bool validateFields()
         {
             errorProvider.Clear();
-
-            // ID
-            if (string.IsNullOrWhiteSpace(txtId.Text) || !int.TryParse(txtId.Text, out int idVal) || idVal <= 0)
-            {
-                errorProvider.SetError(txtId, "Enter a valid ID!");
-                return false;
-            }
 
             // Name
             string name = txtName.Text.Trim();
@@ -79,7 +69,6 @@ namespace Book_Store_Stock_Management_System
 
         private void clearFields()
         {
-            txtId.Clear();
             txtName.Clear();
         }
 

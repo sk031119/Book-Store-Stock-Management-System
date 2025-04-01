@@ -43,10 +43,9 @@
             // 
             // btnDelete
             // 
-            btnDelete.Location = new Point(275, 484);
-            btnDelete.Margin = new Padding(4);
+            btnDelete.Location = new Point(214, 382);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(121, 29);
+            btnDelete.Size = new Size(94, 23);
             btnDelete.TabIndex = 23;
             btnDelete.Text = "Delete Publisher";
             btnDelete.UseVisualStyleBackColor = true;
@@ -54,10 +53,9 @@
             // 
             // buttonSearch
             // 
-            buttonSearch.Location = new Point(258, 15);
-            buttonSearch.Margin = new Padding(4);
+            buttonSearch.Location = new Point(201, 12);
             buttonSearch.Name = "buttonSearch";
-            buttonSearch.Size = new Size(96, 29);
+            buttonSearch.Size = new Size(75, 23);
             buttonSearch.TabIndex = 22;
             buttonSearch.Text = "Search";
             buttonSearch.UseVisualStyleBackColor = true;
@@ -66,27 +64,24 @@
             // lblSearch
             // 
             lblSearch.AutoSize = true;
-            lblSearch.Location = new Point(13, 19);
-            lblSearch.Margin = new Padding(4, 0, 4, 0);
+            lblSearch.Location = new Point(10, 15);
             lblSearch.Name = "lblSearch";
-            lblSearch.Size = new Size(45, 19);
+            lblSearch.Size = new Size(45, 15);
             lblSearch.TabIndex = 21;
             lblSearch.Text = "Name: ";
             // 
             // txtSearch
             // 
-            txtSearch.Location = new Point(67, 15);
-            txtSearch.Margin = new Padding(4);
+            txtSearch.Location = new Point(52, 12);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(163, 27);
+            txtSearch.Size = new Size(128, 23);
             txtSearch.TabIndex = 20;
             // 
             // buttonUpdate
             // 
-            buttonUpdate.Location = new Point(134, 484);
-            buttonUpdate.Margin = new Padding(4);
+            buttonUpdate.Location = new Point(104, 382);
             buttonUpdate.Name = "buttonUpdate";
-            buttonUpdate.Size = new Size(122, 29);
+            buttonUpdate.Size = new Size(95, 23);
             buttonUpdate.TabIndex = 19;
             buttonUpdate.Text = "Update Publisher";
             buttonUpdate.UseVisualStyleBackColor = true;
@@ -94,10 +89,9 @@
             // 
             // buttonAdd
             // 
-            buttonAdd.Location = new Point(13, 484);
-            buttonAdd.Margin = new Padding(4);
+            buttonAdd.Location = new Point(10, 382);
             buttonAdd.Name = "buttonAdd";
-            buttonAdd.Size = new Size(96, 29);
+            buttonAdd.Size = new Size(75, 23);
             buttonAdd.TabIndex = 18;
             buttonAdd.Text = "Add Publisher";
             buttonAdd.UseVisualStyleBackColor = true;
@@ -108,14 +102,13 @@
             listViewPublishers.Columns.AddRange(new ColumnHeader[] { columnHeaderName, columnHeaderAddress, columnHeaderPhone, columnHeaderContactPerson });
             listViewPublishers.FullRowSelect = true;
             listViewPublishers.GridLines = true;
-            listViewPublishers.Location = new Point(13, 65);
-            listViewPublishers.Margin = new Padding(4);
+            listViewPublishers.Location = new Point(10, 51);
             listViewPublishers.Name = "listViewPublishers";
-            listViewPublishers.Size = new Size(1021, 397);
+            listViewPublishers.Size = new Size(795, 314);
             listViewPublishers.Sorting = SortOrder.Ascending;
             listViewPublishers.TabIndex = 17;
             listViewPublishers.UseCompatibleStateImageBehavior = false;
-            listViewPublishers.View = View.Details;
+            listViewPublishers.View = System.Windows.Forms.View.Details;
             // 
             // columnHeaderName
             // 
@@ -139,7 +132,7 @@
             // 
             // PublisherTab
             // 
-            AutoScaleDimensions = new SizeF(9F, 19F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(btnDelete);
             Controls.Add(buttonSearch);
@@ -148,9 +141,8 @@
             Controls.Add(buttonUpdate);
             Controls.Add(buttonAdd);
             Controls.Add(listViewPublishers);
-            Margin = new Padding(4);
             Name = "PublisherTab";
-            Size = new Size(1057, 542);
+            Size = new Size(822, 428);
             Load += PublisherTab_Load;
             ResumeLayout(false);
             PerformLayout();

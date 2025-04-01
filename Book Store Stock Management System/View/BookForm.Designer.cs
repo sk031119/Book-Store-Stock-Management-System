@@ -232,7 +232,7 @@
             Controls.Add(txtISBN);
             Name = "BookForm";
             Text = "Book";
-            Load += BookForm_Load;
+            Enter += buttonSave_Click;
             ((System.ComponentModel.ISupportInitialize)txtPrice).EndInit();
             ((System.ComponentModel.ISupportInitialize)txtCount).EndInit();
             ResumeLayout(false);

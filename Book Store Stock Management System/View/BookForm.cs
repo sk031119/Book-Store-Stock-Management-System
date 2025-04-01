@@ -54,14 +54,17 @@ namespace Book_Store_Stock_Management_System
             comboAuthor.DataSource = authors;
             comboAuthor.DisplayMember = "FullName";
             comboAuthor.ValueMember = "AuthorId";
+            comboAuthor.SelectedIndex = -1;
 
             comboCategory.DataSource = categories;
             comboCategory.DisplayMember = "CategoryName";
             comboCategory.ValueMember = "CategoryId";
+            comboCategory.SelectedIndex = -1;
 
             comboPublisher.DataSource = publishers;
             comboPublisher.DisplayMember = "Name";
             comboPublisher.ValueMember = "PublisherId";
+            comboPublisher.SelectedIndex = -1;
 
             comboStatus.Items.AddRange(status);
         }
@@ -91,17 +94,19 @@ namespace Book_Store_Stock_Management_System
         {
             errorProvider.Clear();
 
+            if (string.IsNullOrWhiteSpace(txtISBN.Text) || !long.TryParse(txtISBN.Text, out _))
+            {
+                errorProvider.SetError(txtISBN, "Enter a valid ISBN!");
+                return false;
+            }
+
+
             if (string.IsNullOrWhiteSpace(txtTitle.Text))
             {
                 errorProvider.SetError(txtTitle, "Enter the title!");
                 return false;
             }
 
-            if (string.IsNullOrWhiteSpace(txtISBN.Text) || !long.TryParse(txtISBN.Text, out _))
-            {
-                errorProvider.SetError(txtISBN, "Enter a valid ISBN!");
-                return false;
-            }
 
             if (txtPrice.Value <= 0)
             {
@@ -127,15 +132,14 @@ namespace Book_Store_Stock_Management_System
         private void buttonClear_Click(object sender, EventArgs e)
         {
             txtTitle.Clear();
-            txtISBN.Clear();
             txtPrice.Value = 0;
             txtCount.Value = 0;
             comboAuthor.SelectedIndex = -1;
             comboCategory.SelectedIndex = -1;
             comboPublisher.SelectedIndex = -1;
             comboStatus.SelectedIndex = -1;
+            if (isNew)
+                txtISBN.Clear();
         }
-
-        private void BookForm_Load(object sender, EventArgs e) { }
     }
 }

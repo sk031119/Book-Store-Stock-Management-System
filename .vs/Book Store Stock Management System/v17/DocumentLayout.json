@@ -3,24 +3,52 @@
   "WorkspaceRootPath": "C:\\Users\\galaa\\Downloads\\Ari\\C#\\Book-Store-Stock-Management-System\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C624C6F8-D1EB-46AD-B922-368E6A7B161C}|Book Store Stock Management System\\Book Store Stock Management System.csproj|c:\\users\\galaa\\downloads\\ari\\c#\\book-store-stock-management-system\\book store stock management system\\view\\bookform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C624C6F8-D1EB-46AD-B922-368E6A7B161C}|Book Store Stock Management System\\Book Store Stock Management System.csproj|solutionrelative:book store stock management system\\view\\bookform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C624C6F8-D1EB-46AD-B922-368E6A7B161C}|Book Store Stock Management System\\Book Store Stock Management System.csproj|c:\\users\\galaa\\downloads\\ari\\c#\\book-store-stock-management-system\\book store stock management system\\view\\publishertab.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C624C6F8-D1EB-46AD-B922-368E6A7B161C}|Book Store Stock Management System\\Book Store Stock Management System.csproj|solutionrelative:book store stock management system\\view\\publishertab.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C624C6F8-D1EB-46AD-B922-368E6A7B161C}|Book Store Stock Management System\\Book Store Stock Management System.csproj|c:\\users\\galaa\\downloads\\ari\\c#\\book-store-stock-management-system\\book store stock management system\\enums.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C624C6F8-D1EB-46AD-B922-368E6A7B161C}|Book Store Stock Management System\\Book Store Stock Management System.csproj|solutionrelative:book store stock management system\\enums.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C624C6F8-D1EB-46AD-B922-368E6A7B161C}|Book Store Stock Management System\\Book Store Stock Management System.csproj|c:\\users\\galaa\\downloads\\ari\\c#\\book-store-stock-management-system\\book store stock management system\\view\\categoriestab.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C624C6F8-D1EB-46AD-B922-368E6A7B161C}|Book Store Stock Management System\\Book Store Stock Management System.csproj|solutionrelative:book store stock management system\\view\\categoriestab.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C624C6F8-D1EB-46AD-B922-368E6A7B161C}|Book Store Stock Management System\\Book Store Stock Management System.csproj|c:\\users\\galaa\\downloads\\ari\\c#\\book-store-stock-management-system\\book store stock management system\\view\\bookform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{C624C6F8-D1EB-46AD-B922-368E6A7B161C}|Book Store Stock Management System\\Book Store Stock Management System.csproj|solutionrelative:book store stock management system\\view\\bookform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{C624C6F8-D1EB-46AD-B922-368E6A7B161C}|Book Store Stock Management System\\Book Store Stock Management System.csproj|c:\\users\\galaa\\downloads\\ari\\c#\\book-store-stock-management-system\\book store stock management system\\view\\categoryform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C624C6F8-D1EB-46AD-B922-368E6A7B161C}|Book Store Stock Management System\\Book Store Stock Management System.csproj|solutionrelative:book store stock management system\\view\\categoryform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C624C6F8-D1EB-46AD-B922-368E6A7B161C}|Book Store Stock Management System\\Book Store Stock Management System.csproj|c:\\users\\galaa\\downloads\\ari\\c#\\book-store-stock-management-system\\book store stock management system\\view\\booktab.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{C624C6F8-D1EB-46AD-B922-368E6A7B161C}|Book Store Stock Management System\\Book Store Stock Management System.csproj|solutionrelative:book store stock management system\\view\\booktab.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C624C6F8-D1EB-46AD-B922-368E6A7B161C}|Book Store Stock Management System\\Book Store Stock Management System.csproj|c:\\users\\galaa\\downloads\\ari\\c#\\book-store-stock-management-system\\book store stock management system\\view\\booktab.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C624C6F8-D1EB-46AD-B922-368E6A7B161C}|Book Store Stock Management System\\Book Store Stock Management System.csproj|solutionrelative:book store stock management system\\view\\booktab.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C624C6F8-D1EB-46AD-B922-368E6A7B161C}|Book Store Stock Management System\\Book Store Stock Management System.csproj|c:\\users\\galaa\\downloads\\ari\\c#\\book-store-stock-management-system\\book store stock management system\\view\\authorstab.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C624C6F8-D1EB-46AD-B922-368E6A7B161C}|Book Store Stock Management System\\Book Store Stock Management System.csproj|solutionrelative:book store stock management system\\view\\authorstab.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C624C6F8-D1EB-46AD-B922-368E6A7B161C}|Book Store Stock Management System\\Book Store Stock Management System.csproj|c:\\users\\galaa\\downloads\\ari\\c#\\book-store-stock-management-system\\book store stock management system\\view\\categoriestab.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C624C6F8-D1EB-46AD-B922-368E6A7B161C}|Book Store Stock Management System\\Book Store Stock Management System.csproj|solutionrelative:book store stock management system\\view\\categoriestab.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C624C6F8-D1EB-46AD-B922-368E6A7B161C}|Book Store Stock Management System\\Book Store Stock Management System.csproj|c:\\users\\galaa\\downloads\\ari\\c#\\book-store-stock-management-system\\book store stock management system\\view\\authorstab.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C624C6F8-D1EB-46AD-B922-368E6A7B161C}|Book Store Stock Management System\\Book Store Stock Management System.csproj|solutionrelative:book store stock management system\\view\\authorstab.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C624C6F8-D1EB-46AD-B922-368E6A7B161C}|Book Store Stock Management System\\Book Store Stock Management System.csproj|c:\\users\\galaa\\downloads\\ari\\c#\\book-store-stock-management-system\\book store stock management system\\view\\publishertab.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C624C6F8-D1EB-46AD-B922-368E6A7B161C}|Book Store Stock Management System\\Book Store Stock Management System.csproj|solutionrelative:book store stock management system\\view\\publishertab.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C624C6F8-D1EB-46AD-B922-368E6A7B161C}|Book Store Stock Management System\\Book Store Stock Management System.csproj|c:\\users\\galaa\\downloads\\ari\\c#\\book-store-stock-management-system\\book store stock management system\\view\\booktab.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C624C6F8-D1EB-46AD-B922-368E6A7B161C}|Book Store Stock Management System\\Book Store Stock Management System.csproj|solutionrelative:book store stock management system\\view\\booktab.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C624C6F8-D1EB-46AD-B922-368E6A7B161C}|Book Store Stock Management System\\Book Store Stock Management System.csproj|c:\\users\\galaa\\downloads\\ari\\c#\\book-store-stock-management-system\\book store stock management system\\view\\userform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C624C6F8-D1EB-46AD-B922-368E6A7B161C}|Book Store Stock Management System\\Book Store Stock Management System.csproj|solutionrelative:book store stock management system\\view\\userform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C624C6F8-D1EB-46AD-B922-368E6A7B161C}|Book Store Stock Management System\\Book Store Stock Management System.csproj|c:\\users\\galaa\\downloads\\ari\\c#\\book-store-stock-management-system\\book store stock management system\\view\\userform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C624C6F8-D1EB-46AD-B922-368E6A7B161C}|Book Store Stock Management System\\Book Store Stock Management System.csproj|solutionrelative:book store stock management system\\view\\userform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C624C6F8-D1EB-46AD-B922-368E6A7B161C}|Book Store Stock Management System\\Book Store Stock Management System.csproj|c:\\users\\galaa\\downloads\\ari\\c#\\book-store-stock-management-system\\book store stock management system\\controller\\usersdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C624C6F8-D1EB-46AD-B922-368E6A7B161C}|Book Store Stock Management System\\Book Store Stock Management System.csproj|solutionrelative:book store stock management system\\controller\\usersdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,57 +58,80 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Enums.cs",
-              "DocumentMoniker": "C:\\Users\\galaa\\Downloads\\Ari\\C#\\Book-Store-Stock-Management-System\\Book Store Stock Management System\\Enums.cs",
-              "RelativeDocumentMoniker": "Book Store Stock Management System\\Enums.cs",
-              "ToolTip": "C:\\Users\\galaa\\Downloads\\Ari\\C#\\Book-Store-Stock-Management-System\\Book Store Stock Management System\\Enums.cs",
-              "RelativeToolTip": "Book Store Stock Management System\\Enums.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "PublisherTab.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\galaa\\Downloads\\Ari\\C#\\Book-Store-Stock-Management-System\\Book Store Stock Management System\\View\\PublisherTab.cs",
+              "RelativeDocumentMoniker": "Book Store Stock Management System\\View\\PublisherTab.cs",
+              "ToolTip": "C:\\Users\\galaa\\Downloads\\Ari\\C#\\Book-Store-Stock-Management-System\\Book Store Stock Management System\\View\\PublisherTab.cs [Design]",
+              "RelativeToolTip": "Book Store Stock Management System\\View\\PublisherTab.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-01T01:40:28.069Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-01T02:21:51.607Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "BookForm.cs",
-              "DocumentMoniker": "C:\\Users\\galaa\\Downloads\\Ari\\C#\\Book-Store-Stock-Management-System\\Book Store Stock Management System\\View\\BookForm.cs",
-              "RelativeDocumentMoniker": "Book Store Stock Management System\\View\\BookForm.cs",
-              "ToolTip": "C:\\Users\\galaa\\Downloads\\Ari\\C#\\Book-Store-Stock-Management-System\\Book Store Stock Management System\\View\\BookForm.cs",
-              "RelativeToolTip": "Book Store Stock Management System\\View\\BookForm.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAQwAoAAAAgAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "CategoriesTab.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\galaa\\Downloads\\Ari\\C#\\Book-Store-Stock-Management-System\\Book Store Stock Management System\\View\\CategoriesTab.cs",
+              "RelativeDocumentMoniker": "Book Store Stock Management System\\View\\CategoriesTab.cs",
+              "ToolTip": "C:\\Users\\galaa\\Downloads\\Ari\\C#\\Book-Store-Stock-Management-System\\Book Store Stock Management System\\View\\CategoriesTab.cs [Design]",
+              "RelativeToolTip": "Book Store Stock Management System\\View\\CategoriesTab.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-01T01:40:12.587Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-01T02:21:34.415Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "BookForm.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\galaa\\Downloads\\Ari\\C#\\Book-Store-Stock-Management-System\\Book Store Stock Management System\\View\\BookForm.cs",
-              "RelativeDocumentMoniker": "Book Store Stock Management System\\View\\BookForm.cs",
-              "ToolTip": "C:\\Users\\galaa\\Downloads\\Ari\\C#\\Book-Store-Stock-Management-System\\Book Store Stock Management System\\View\\BookForm.cs [Design]",
-              "RelativeToolTip": "Book Store Stock Management System\\View\\BookForm.cs [Design]",
+              "Title": "CategoryForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\galaa\\Downloads\\Ari\\C#\\Book-Store-Stock-Management-System\\Book Store Stock Management System\\View\\CategoryForm.cs",
+              "RelativeDocumentMoniker": "Book Store Stock Management System\\View\\CategoryForm.cs",
+              "ToolTip": "C:\\Users\\galaa\\Downloads\\Ari\\C#\\Book-Store-Stock-Management-System\\Book Store Stock Management System\\View\\CategoryForm.cs [Design]",
+              "RelativeToolTip": "Book Store Stock Management System\\View\\CategoryForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-01T01:40:10.338Z",
+              "WhenOpened": "2025-04-01T02:21:33.629Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "BookTab.cs",
-              "DocumentMoniker": "C:\\Users\\galaa\\Downloads\\Ari\\C#\\Book-Store-Stock-Management-System\\Book Store Stock Management System\\View\\BookTab.cs",
-              "RelativeDocumentMoniker": "Book Store Stock Management System\\View\\BookTab.cs",
-              "ToolTip": "C:\\Users\\galaa\\Downloads\\Ari\\C#\\Book-Store-Stock-Management-System\\Book Store Stock Management System\\View\\BookTab.cs",
-              "RelativeToolTip": "Book Store Stock Management System\\View\\BookTab.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAADAAAABBAAAAAAAAAA==",
+              "Title": "AuthorsTab.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\galaa\\Downloads\\Ari\\C#\\Book-Store-Stock-Management-System\\Book Store Stock Management System\\View\\AuthorsTab.cs",
+              "RelativeDocumentMoniker": "Book Store Stock Management System\\View\\AuthorsTab.cs",
+              "ToolTip": "C:\\Users\\galaa\\Downloads\\Ari\\C#\\Book-Store-Stock-Management-System\\Book Store Stock Management System\\View\\AuthorsTab.cs [Design]",
+              "RelativeToolTip": "Book Store Stock Management System\\View\\AuthorsTab.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-01T01:39:03.46Z",
+              "WhenOpened": "2025-04-01T02:21:20.929Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "PublisherTab.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\galaa\\Downloads\\Ari\\C#\\Book-Store-Stock-Management-System\\Book Store Stock Management System\\View\\PublisherTab.Designer.cs",
+              "RelativeDocumentMoniker": "Book Store Stock Management System\\View\\PublisherTab.Designer.cs",
+              "ToolTip": "C:\\Users\\galaa\\Downloads\\Ari\\C#\\Book-Store-Stock-Management-System\\Book Store Stock Management System\\View\\PublisherTab.Designer.cs",
+              "RelativeToolTip": "Book Store Stock Management System\\View\\PublisherTab.Designer.cs",
+              "ViewState": "AgIAAGEAAAAAAAAAAAAhwG8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-01T02:21:09.511Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CategoriesTab.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\galaa\\Downloads\\Ari\\C#\\Book-Store-Stock-Management-System\\Book Store Stock Management System\\View\\CategoriesTab.Designer.cs",
+              "RelativeDocumentMoniker": "Book Store Stock Management System\\View\\CategoriesTab.Designer.cs",
+              "ToolTip": "C:\\Users\\galaa\\Downloads\\Ari\\C#\\Book-Store-Stock-Management-System\\Book Store Stock Management System\\View\\CategoriesTab.Designer.cs",
+              "RelativeToolTip": "Book Store Stock Management System\\View\\CategoriesTab.Designer.cs",
+              "ViewState": "AgIAAF4AAAAAAAAAAAAhwGwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-01T02:21:03.026Z",
               "EditorCaption": ""
             },
             {
@@ -92,8 +143,72 @@
               "ToolTip": "C:\\Users\\galaa\\Downloads\\Ari\\C#\\Book-Store-Stock-Management-System\\Book Store Stock Management System\\View\\BookTab.cs [Design]",
               "RelativeToolTip": "Book Store Stock Management System\\View\\BookTab.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-01T01:39:01.58Z",
+              "WhenOpened": "2025-04-01T02:14:56.552Z",
               "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "BookTab.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\galaa\\Downloads\\Ari\\C#\\Book-Store-Stock-Management-System\\Book Store Stock Management System\\View\\BookTab.Designer.cs",
+              "RelativeDocumentMoniker": "Book Store Stock Management System\\View\\BookTab.Designer.cs",
+              "ToolTip": "C:\\Users\\galaa\\Downloads\\Ari\\C#\\Book-Store-Stock-Management-System\\Book Store Stock Management System\\View\\BookTab.Designer.cs",
+              "RelativeToolTip": "Book Store Stock Management System\\View\\BookTab.Designer.cs",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAqwHMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-01T02:14:35.196Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AuthorsTab.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\galaa\\Downloads\\Ari\\C#\\Book-Store-Stock-Management-System\\Book Store Stock Management System\\View\\AuthorsTab.Designer.cs",
+              "RelativeDocumentMoniker": "Book Store Stock Management System\\View\\AuthorsTab.Designer.cs",
+              "ToolTip": "C:\\Users\\galaa\\Downloads\\Ari\\C#\\Book-Store-Stock-Management-System\\Book Store Stock Management System\\View\\AuthorsTab.Designer.cs",
+              "RelativeToolTip": "Book Store Stock Management System\\View\\AuthorsTab.Designer.cs",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAhwG0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-01T02:13:29.162Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "UserForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\galaa\\Downloads\\Ari\\C#\\Book-Store-Stock-Management-System\\Book Store Stock Management System\\View\\UserForm.cs",
+              "RelativeDocumentMoniker": "Book Store Stock Management System\\View\\UserForm.cs",
+              "ToolTip": "C:\\Users\\galaa\\Downloads\\Ari\\C#\\Book-Store-Stock-Management-System\\Book Store Stock Management System\\View\\UserForm.cs [Design]",
+              "RelativeToolTip": "Book Store Stock Management System\\View\\UserForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-01T02:09:01.259Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "UserForm.cs",
+              "DocumentMoniker": "C:\\Users\\galaa\\Downloads\\Ari\\C#\\Book-Store-Stock-Management-System\\Book Store Stock Management System\\View\\UserForm.cs",
+              "RelativeDocumentMoniker": "Book Store Stock Management System\\View\\UserForm.cs",
+              "ToolTip": "C:\\Users\\galaa\\Downloads\\Ari\\C#\\Book-Store-Stock-Management-System\\Book Store Stock Management System\\View\\UserForm.cs",
+              "RelativeToolTip": "Book Store Stock Management System\\View\\UserForm.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-01T02:08:14.093Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "UsersDB.cs",
+              "DocumentMoniker": "C:\\Users\\galaa\\Downloads\\Ari\\C#\\Book-Store-Stock-Management-System\\Book Store Stock Management System\\Controller\\UsersDB.cs",
+              "RelativeDocumentMoniker": "Book Store Stock Management System\\Controller\\UsersDB.cs",
+              "ToolTip": "C:\\Users\\galaa\\Downloads\\Ari\\C#\\Book-Store-Stock-Management-System\\Book Store Stock Management System\\Controller\\UsersDB.cs",
+              "RelativeToolTip": "Book Store Stock Management System\\Controller\\UsersDB.cs",
+              "ViewState": "AgIAACwAAAAAAAAAAAAIwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-01T01:58:27.682Z",
+              "EditorCaption": ""
             }
           ]
         }

@@ -31,7 +31,7 @@
     <Compile Update="View\PublisherTab.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="View\UserForm .cs">
+    <Compile Update="View\UserForm.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
