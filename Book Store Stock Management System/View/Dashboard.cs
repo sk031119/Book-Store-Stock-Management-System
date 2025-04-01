@@ -1,16 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Book_Store_Stock_Management_System.View;
-using static System.Reflection.Metadata.BlobBuilder;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+﻿using Book_Store_Stock_Management_System.View;
 
 namespace Book_Store_Stock_Management_System
 {
@@ -73,6 +61,19 @@ namespace Book_Store_Stock_Management_System
         private void Dashboard_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonLogout_Click(object sender, EventArgs e)
+        {
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+
+            this.Close();
+        }
+
+        private void Dashboard_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

@@ -36,6 +36,7 @@
             tabReports = new TabPage();
             tabUsers = new TabPage();
             lblWelcome = new Label();
+            buttonLogout = new Button();
             tabControl.SuspendLayout();
             SuspendLayout();
             // 
@@ -113,7 +114,7 @@
             // 
             lblWelcome.AutoSize = true;
             lblWelcome.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblWelcome.Location = new Point(749, 11);
+            lblWelcome.Location = new Point(627, 11);
             lblWelcome.Name = "lblWelcome";
             lblWelcome.RightToLeft = RightToLeft.No;
             lblWelcome.Size = new Size(106, 15);
@@ -121,15 +122,27 @@
             lblWelcome.Text = "Welcome, Admin!";
             lblWelcome.TextAlign = ContentAlignment.TopRight;
             // 
+            // buttonLogout
+            // 
+            buttonLogout.Location = new Point(763, 6);
+            buttonLogout.Name = "buttonLogout";
+            buttonLogout.Size = new Size(93, 24);
+            buttonLogout.TabIndex = 2;
+            buttonLogout.Text = "Logout";
+            buttonLogout.UseVisualStyleBackColor = true;
+            buttonLogout.Click += buttonLogout_Click;
+            // 
             // Dashboard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(875, 486);
+            Controls.Add(buttonLogout);
             Controls.Add(lblWelcome);
             Controls.Add(tabControl);
             Name = "Dashboard";
             Text = "Stock Management System";
+            FormClosed += Dashboard_FormClosed;
             Load += Dashboard_Load;
             tabControl.ResumeLayout(false);
             ResumeLayout(false);
@@ -146,5 +159,6 @@
         private Label lblWelcome;
         private TabPage tabUsers;
         private TabPage tabBooks;
+        private Button buttonLogout;
     }
 }
