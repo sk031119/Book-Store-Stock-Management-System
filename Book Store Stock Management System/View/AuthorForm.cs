@@ -7,13 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Book_Store_Stock_Management_System.Models;
 
 namespace Book_Store_Stock_Management_System
 {
     public partial class AuthorForm : Form
     {
-        public AuthorOld AuthorDetail;
+        public Author AuthorDetail;
         private bool isNew;
+        private ErrorProvider errorProvider = new ErrorProvider();
 
         public AuthorForm()
         {
@@ -21,11 +23,11 @@ namespace Book_Store_Stock_Management_System
             isNew = true;
         }
 
-        public AuthorForm(AuthorOld author) : this()
+        public AuthorForm(Author author) : this()
         {
             AuthorDetail = author;
-            txtFName.Text = author.FName;
-            txtLName.Text = author.LName;
+            txtFName.Text = author.FirstName;
+            txtLName.Text = author.LastName;
             isNew = false;
         }
 
@@ -35,11 +37,11 @@ namespace Book_Store_Stock_Management_System
             {
                 if (isNew)
                 {
-                    AuthorDetail = new AuthorOld();
+                    AuthorDetail = new Author();
                 }
 
-                AuthorDetail.FName = txtFName.Text;
-                AuthorDetail.LName = txtLName.Text;
+                AuthorDetail.FirstName = txtFName.Text;
+                AuthorDetail.LastName = txtLName.Text;
 
                 this.DialogResult = DialogResult.OK;
                 this.Close();
@@ -54,15 +56,17 @@ namespace Book_Store_Stock_Management_System
 
         private bool ValidateFields()
         {
+            errorProvider.Clear();
+
             if (string.IsNullOrWhiteSpace(txtFName.Text))
             {
-                MessageBox.Show("Please enter the first name.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                errorProvider.SetError(txtFName, "Please enter the first name.");
                 return false;
             }
 
             if (string.IsNullOrWhiteSpace(txtLName.Text))
             {
-                MessageBox.Show("Please enter the last name.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                errorProvider.SetError(txtLName, "Please enter the last name.");
                 return false;
             }
 
@@ -71,7 +75,7 @@ namespace Book_Store_Stock_Management_System
 
         private void AuthorForm_Load(object sender, EventArgs e)
         {
-
+            // 初始化時需要執行的代碼
         }
     }
 }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Book_Store_Stock_Management_System.Controller;
+using Book_Store_Stock_Management_System.Models;
 
 namespace Book_Store_Stock_Management_System
 {
@@ -21,11 +22,11 @@ namespace Book_Store_Stock_Management_System
 
         private void LoadPublishers()
         {
-            List<PublisherOld> publishers = PublisherDB.GetPublishers();
+            List<Publisher> publishers = PublisherDB.GetPublishers();
             PopulateList(publishers);
         }
 
-        private void PopulateList(List<PublisherOld> publishers)
+        private void PopulateList(List<Publisher> publishers)
         {
             listViewPublishers.Items.Clear();
 
@@ -43,10 +44,8 @@ namespace Book_Store_Stock_Management_System
             {
                 if (publisherForm.ShowDialog() == DialogResult.OK)
                 {
-                    PublisherOld newPublisher = publisherForm.PublisherDetail;
-                    List<PublisherOld> publishers = PublisherDB.GetPublishers();
-                    publishers.Add(newPublisher);
-                    PublisherDB.SavePublishers(publishers);
+                    Publisher newPublisher = publisherForm.PublisherDetail;
+                    PublisherDB.AddPublisher(newPublisher);
                     LoadPublishers();
                 }
             }
@@ -65,8 +64,8 @@ namespace Book_Store_Stock_Management_System
             string address = selectedItem.SubItems[1].Text;
             string phone = selectedItem.SubItems[2].Text;
 
-            List<PublisherOld> publishers = PublisherDB.GetPublishers();
-            PublisherOld selectedPublisher = publishers.FirstOrDefault(p => p.Name == name && p.Address == address && p.Phone == phone);
+            List<Publisher> publishers = PublisherDB.GetPublishers();
+            Publisher selectedPublisher = publishers.FirstOrDefault(p => p.Name == name && p.Address == address && p.Phone == phone);
 
             if (selectedPublisher == null)
             {
@@ -82,7 +81,7 @@ namespace Book_Store_Stock_Management_System
                     selectedPublisher.Address = publisherForm.PublisherDetail.Address;
                     selectedPublisher.Phone = publisherForm.PublisherDetail.Phone;
                     selectedPublisher.ContactPerson = publisherForm.PublisherDetail.ContactPerson;
-                    PublisherDB.SavePublishers(publishers);
+                    PublisherDB.UpdatePublisher(selectedPublisher);
                     LoadPublishers();
                 }
             }
@@ -91,13 +90,8 @@ namespace Book_Store_Stock_Management_System
         private void buttonSearch_Click(object sender, EventArgs e)
         {
             string searchText = txtSearch.Text.Trim();
-            List<PublisherOld> publishers = PublisherDB.GetPublishers();
-            var filteredPublishers = publishers.Where(publisher =>
-                publisher.Name.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
-                publisher.Address.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
-                publisher.Phone.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
-                publisher.ContactPerson.Contains(searchText, StringComparison.OrdinalIgnoreCase)).ToList();
-            PopulateList(filteredPublishers);
+            List<Publisher> publishers = PublisherDB.SearchPublishers(searchText);
+            PopulateList(publishers);
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -113,8 +107,8 @@ namespace Book_Store_Stock_Management_System
             string address = selectedItem.SubItems[1].Text;
             string phone = selectedItem.SubItems[2].Text;
 
-            List<PublisherOld> publishers = PublisherDB.GetPublishers();
-            PublisherOld selectedPublisher = publishers.FirstOrDefault(p => p.Name == name && p.Address == address && p.Phone == phone);
+            List<Publisher> publishers = PublisherDB.GetPublishers();
+            Publisher selectedPublisher = publishers.FirstOrDefault(p => p.Name == name && p.Address == address && p.Phone == phone);
 
             if (selectedPublisher == null)
             {
@@ -129,8 +123,11 @@ namespace Book_Store_Stock_Management_System
 
             if (dialogResult == DialogResult.Yes)
             {
-                publishers.Remove(selectedPublisher);
-                PublisherDB.SavePublishers(publishers);
+                PublisherDB.DeletePublisher(selectedPublisher.PublisherId, out string errorMessage);
+                if (!string.IsNullOrEmpty(errorMessage))
+                {
+                    MessageBox.Show(errorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 LoadPublishers();
             }
         }

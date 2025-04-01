@@ -7,12 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Book_Store_Stock_Management_System.Models;
+
 
 namespace Book_Store_Stock_Management_System
 {
     public partial class PublisherForm : Form
     {
-        public PublisherOld PublisherDetail;
+        public Publisher PublisherDetail;
         private bool isNew;
         private ErrorProvider errorProvider = new ErrorProvider();
 
@@ -22,7 +24,7 @@ namespace Book_Store_Stock_Management_System
             isNew = true;
         }
 
-        public PublisherForm(PublisherOld publisher) : this()
+        public PublisherForm(Publisher publisher) : this()
         {
             PublisherDetail = publisher;
             txtName.Text = publisher.Name;
@@ -38,7 +40,7 @@ namespace Book_Store_Stock_Management_System
             {
                 if (isNew)
                 {
-                    PublisherDetail = new PublisherOld();
+                    PublisherDetail = new Publisher();
                 }
 
                 PublisherDetail.Name = txtName.Text;
@@ -90,7 +92,6 @@ namespace Book_Store_Stock_Management_System
 
         private void PublisherForm_Load(object sender, EventArgs e)
         {
-            // 可以添加初始化代碼
         }
     }
 }

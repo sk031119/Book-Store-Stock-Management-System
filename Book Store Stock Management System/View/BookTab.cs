@@ -151,5 +151,14 @@ namespace Book_Store_Stock_Management_System
             }
         }
 
+        private void BookTab_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BookTab_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

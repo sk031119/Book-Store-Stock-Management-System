@@ -141,5 +141,15 @@ namespace Book_Store_Stock_Management_System
             if (isNew)
                 txtISBN.Clear();
         }
+
+        private void BookForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BookForm_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

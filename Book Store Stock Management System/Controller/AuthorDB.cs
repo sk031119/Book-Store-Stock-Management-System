@@ -1,60 +1,98 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Book_Store_Stock_Management_System.Models;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 
 namespace Book_Store_Stock_Management_System.Controller
 {
     public static class AuthorDB
     {
-        private const string Dir = @"C:\Users\Public\Documents";
-        private const string Path = Dir + "\\Author.csv";
-
-        public static List<AuthorOld> GetAuthor()
+        // Get all authors from the database
+        public static List<Author> GetAuthors()
         {
-            List<AuthorOld> authors = new List<AuthorOld>();
-
-            // Check if the file exists, if not, create an empty file
-            if (!File.Exists(Path))
+            using (var context = new CsdbContext())
             {
-                // Ensure the directory exists
-                Directory.CreateDirectory(Dir);
-                // Create an empty file
-                File.Create(Path).Close();
-                return authors; // Return an empty list
+                return context.Authors
+                    .OrderBy(a => a.LastName)
+                    .ThenBy(a => a.FirstName)
+                    .ToList();
             }
-
-            using (StreamReader textIn = new StreamReader(
-                new FileStream(Path, FileMode.Open, FileAccess.Read)))
-            {
-                while (textIn.Peek() != -1)
-                {
-                    string row = textIn.ReadLine();
-                    string[] columns = row.Split(',');
-                    AuthorOld author = new AuthorOld();
-                    author.FName = columns[0];
-                    author.LName = columns[1];
-                    authors.Add(author);
-                }
-            }
-
-            return authors;
         }
 
-        public static void SaveAuthor(List<AuthorOld> authors)
+        // Add a new author to the database
+        public static void AddAuthor(Author newAuthor)
         {
-            // Ensure the directory exists
-            Directory.CreateDirectory(Dir);
-
-            using (StreamWriter textOut = new StreamWriter(
-                new FileStream(Path, FileMode.Create, FileAccess.Write)))
+            using (var context = new CsdbContext())
             {
-                foreach (AuthorOld author in authors)
+                context.Authors.Add(newAuthor);
+                context.SaveChanges();
+            }
+        }
+
+        // Update an existing author
+        public static void UpdateAuthor(Author updatedAuthor)
+        {
+            using (var context = new CsdbContext())
+            {
+                var existingAuthor = context.Authors.FirstOrDefault(a => a.AuthorId == updatedAuthor.AuthorId);
+                if (existingAuthor != null)
                 {
-                    textOut.Write(author.FName + ",");
-                    textOut.WriteLine(author.LName);
+                    existingAuthor.FirstName = updatedAuthor.FirstName;
+                    existingAuthor.LastName = updatedAuthor.LastName;
+                    context.SaveChanges();
                 }
+            }
+        }
+
+        // Delete author
+        public static bool DeleteAuthor(int authorId, out string errorMessage)
+        {
+            errorMessage = string.Empty;
+
+            using (var context = new CsdbContext())
+            {
+                var author = context.Authors.FirstOrDefault(a => a.AuthorId == authorId);
+                if (author != null)
+                {
+                    try
+                    {
+                        context.Authors.Remove(author);
+                        context.SaveChanges();
+                        return true;
+                    }
+                    catch (DbUpdateException dbEx)
+                    {
+                        if (dbEx.InnerException is SqlException sqlEx && sqlEx.Number == 547)
+                        {
+                            errorMessage = "Cannot delete this author because there are still related book records!";
+                        }
+                        else
+                        {
+                            errorMessage = "Database error: " + dbEx.Message;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        errorMessage = "Unexpected error: " + ex.Message;
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        // Search by author name
+        public static List<Author> SearchAuthors(string name)
+        {
+            using (var context = new CsdbContext())
+            {
+                return context.Authors
+                    .Where(a => a.FirstName.Contains(name) || a.LastName.Contains(name))
+                    .OrderBy(a => a.LastName)
+                    .ThenBy(a => a.FirstName)
+                    .ToList();
             }
         }
     }

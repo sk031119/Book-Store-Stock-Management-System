@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using Book_Store_Stock_Management_System.Controller;
+using Book_Store_Stock_Management_System.Models;
 
 namespace Book_Store_Stock_Management_System
 {
@@ -21,17 +14,17 @@ namespace Book_Store_Stock_Management_System
 
         private void LoadAuthors()
         {
-            List<AuthorOld> authors = AuthorDB.GetAuthor();
+            List<Author> authors = AuthorDB.GetAuthors();
             PopulateList(authors);
         }
 
-        private void PopulateList(List<AuthorOld> authors)
+        private void PopulateList(List<Author> authors)
         {
             listViewAuthors.Items.Clear();
 
-            var items = authors.Select(author => new ListViewItem(author.FName)
+            var items = authors.Select(author => new ListViewItem(author.FirstName)
             {
-                SubItems = { author.LName }
+                SubItems = { author.LastName }
             }).ToArray();
 
             listViewAuthors.Items.AddRange(items);
@@ -43,10 +36,8 @@ namespace Book_Store_Stock_Management_System
             {
                 if (authorForm.ShowDialog() == DialogResult.OK)
                 {
-                    AuthorOld newAuthor = authorForm.AuthorDetail;
-                    List<AuthorOld> authors = AuthorDB.GetAuthor();
-                    authors.Add(newAuthor);
-                    AuthorDB.SaveAuthor(authors);
+                    Author newAuthor = authorForm.AuthorDetail;
+                    AuthorDB.AddAuthor(newAuthor);
                     LoadAuthors();
                 }
             }
@@ -61,10 +52,11 @@ namespace Book_Store_Stock_Management_System
             }
 
             ListViewItem selectedItem = listViewAuthors.SelectedItems[0];
-            string fName = selectedItem.SubItems[0].Text;
-            string lName = selectedItem.SubItems[1].Text;
-            List<AuthorOld> authors = AuthorDB.GetAuthor();
-            AuthorOld selectedAuthor = authors.FirstOrDefault(a => a.FName == fName && a.LName == lName);
+            string firstName = selectedItem.SubItems[0].Text;
+            string lastName = selectedItem.SubItems[1].Text;
+
+            List<Author> authors = AuthorDB.GetAuthors();
+            Author selectedAuthor = authors.FirstOrDefault(a => a.FirstName == firstName && a.LastName == lastName);
 
             if (selectedAuthor == null)
             {
@@ -76,9 +68,9 @@ namespace Book_Store_Stock_Management_System
             {
                 if (authorForm.ShowDialog() == DialogResult.OK)
                 {
-                    selectedAuthor.FName = authorForm.AuthorDetail.FName;
-                    selectedAuthor.LName = authorForm.AuthorDetail.LName;
-                    AuthorDB.SaveAuthor(authors);
+                    selectedAuthor.FirstName = authorForm.AuthorDetail.FirstName;
+                    selectedAuthor.LastName = authorForm.AuthorDetail.LastName;
+                    AuthorDB.UpdateAuthor(selectedAuthor);
                     LoadAuthors();
                 }
             }
@@ -87,9 +79,8 @@ namespace Book_Store_Stock_Management_System
         private void buttonSearch_Click(object sender, EventArgs e)
         {
             string name = txtSearch.Text.Trim();
-            List<AuthorOld> authors = AuthorDB.GetAuthor();
-            var filteredAuthors = authors.Where(author => author.FName.Contains(name, StringComparison.OrdinalIgnoreCase) || author.LName.Contains(name, StringComparison.OrdinalIgnoreCase)).ToList();
-            PopulateList(filteredAuthors);
+            List<Author> authors = AuthorDB.SearchAuthors(name);
+            PopulateList(authors);
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -101,10 +92,11 @@ namespace Book_Store_Stock_Management_System
             }
 
             ListViewItem selectedItem = listViewAuthors.SelectedItems[0];
-            string fName = selectedItem.SubItems[0].Text;
-            string lName = selectedItem.SubItems[1].Text;
-            List<AuthorOld> authors = AuthorDB.GetAuthor();
-            AuthorOld selectedAuthor = authors.FirstOrDefault(a => a.FName == fName && a.LName == lName);
+            string firstName = selectedItem.SubItems[0].Text;
+            string lastName = selectedItem.SubItems[1].Text;
+
+            List<Author> authors = AuthorDB.GetAuthors();
+            Author selectedAuthor = authors.FirstOrDefault(a => a.FirstName == firstName && a.LastName == lastName);
 
             if (selectedAuthor == null)
             {
@@ -112,15 +104,20 @@ namespace Book_Store_Stock_Management_System
                 return;
             }
 
-            DialogResult dialogResult = MessageBox.Show("Are you sure to delete " + selectedAuthor.FName + " " + selectedAuthor.LName + " ?",
+            DialogResult dialogResult = MessageBox.Show("Are you sure to delete " + selectedAuthor.FirstName + " " + selectedAuthor.LastName + " ?",
                                                "Confirm",
                                                MessageBoxButtons.YesNo,
                                                MessageBoxIcon.Question);
 
             if (dialogResult == DialogResult.Yes)
             {
-                authors.Remove(selectedAuthor);
-                AuthorDB.SaveAuthor(authors);
+                string errorMessage;
+                bool success = AuthorDB.DeleteAuthor(selectedAuthor.AuthorId, out errorMessage);
+
+                if (!success)
+                {
+                    MessageBox.Show(errorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 LoadAuthors();
             }
         }
