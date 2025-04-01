@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Book_Store_Stock_Management_System.View;
 using static System.Reflection.Metadata.BlobBuilder;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
@@ -49,11 +50,15 @@ namespace Book_Store_Stock_Management_System
             categoriesTab.Dock = DockStyle.Fill;
             tabCategory.Controls.Add(categoriesTab);
 
+            UsersTab usersTab = new UsersTab();
+            usersTab.Dock = DockStyle.Fill;
+            tabUsers.Controls.Add(usersTab);
+
             // Removing tabs based on role
             if (userRole == UserRole.EMPLOYEE)
             {
                 tabControl.TabPages.Remove(tabReports);
-                tabControl.TabPages.Remove(tabEmployees);
+                tabControl.TabPages.Remove(tabUsers);
             }
             else if (userRole == UserRole.GUEST)
             {
@@ -61,7 +66,7 @@ namespace Book_Store_Stock_Management_System
                 tabControl.TabPages.Remove(tabPublishers);
                 tabControl.TabPages.Remove(tabCategory);
                 tabControl.TabPages.Remove(tabReports);
-                tabControl.TabPages.Remove(tabEmployees);
+                tabControl.TabPages.Remove(tabUsers);
             }
         }
 

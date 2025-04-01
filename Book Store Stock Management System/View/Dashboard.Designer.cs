@@ -34,7 +34,7 @@
             tabCategory = new TabPage();
             tabPublishers = new TabPage();
             tabReports = new TabPage();
-            tabEmployees = new TabPage();
+            tabUsers = new TabPage();
             lblWelcome = new Label();
             tabControl.SuspendLayout();
             SuspendLayout();
@@ -46,7 +46,7 @@
             tabControl.Controls.Add(tabCategory);
             tabControl.Controls.Add(tabPublishers);
             tabControl.Controls.Add(tabReports);
-            tabControl.Controls.Add(tabEmployees);
+            tabControl.Controls.Add(tabUsers);
             tabControl.Location = new Point(10, 11);
             tabControl.Name = "tabControl";
             tabControl.SelectedIndex = 0;
@@ -57,7 +57,7 @@
             // 
             tabBooks.Location = new Point(4, 24);
             tabBooks.Name = "tabBooks";
-            tabBooks.Padding = new Padding(3, 3, 3, 3);
+            tabBooks.Padding = new Padding(3);
             tabBooks.Size = new Size(843, 434);
             tabBooks.TabIndex = 0;
             tabBooks.Text = "Books";
@@ -67,7 +67,7 @@
             // 
             tabAuthors.Location = new Point(4, 24);
             tabAuthors.Name = "tabAuthors";
-            tabAuthors.Padding = new Padding(3, 3, 3, 3);
+            tabAuthors.Padding = new Padding(3);
             tabAuthors.Size = new Size(843, 434);
             tabAuthors.TabIndex = 1;
             tabAuthors.Text = "Authors";
@@ -100,14 +100,14 @@
             tabReports.Text = "Reports";
             tabReports.UseVisualStyleBackColor = true;
             // 
-            // tabEmployees
+            // tabUsers
             // 
-            tabEmployees.Location = new Point(4, 24);
-            tabEmployees.Name = "tabEmployees";
-            tabEmployees.Size = new Size(843, 434);
-            tabEmployees.TabIndex = 6;
-            tabEmployees.Text = "Employees";
-            tabEmployees.UseVisualStyleBackColor = true;
+            tabUsers.Location = new Point(4, 24);
+            tabUsers.Name = "tabUsers";
+            tabUsers.Size = new Size(843, 434);
+            tabUsers.TabIndex = 6;
+            tabUsers.Text = "System Users";
+            tabUsers.UseVisualStyleBackColor = true;
             // 
             // lblWelcome
             // 
@@ -144,7 +144,7 @@
         private TabPage tabPublishers;
         private TabPage tabReports;
         private Label lblWelcome;
-        private TabPage tabEmployees;
+        private TabPage tabUsers;
         private TabPage tabBooks;
     }
 }

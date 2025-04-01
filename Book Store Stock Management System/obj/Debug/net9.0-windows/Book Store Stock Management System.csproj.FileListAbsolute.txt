@@ -217,3 +217,5 @@ C:\Users\galaa\Downloads\Ari\C#\Book-Store-Stock-Management-System\Book Store St
 C:\Users\galaa\Downloads\Ari\C#\Book-Store-Stock-Management-System\Book Store Stock Management System\obj\Debug\net9.0-windows\Book Store Stock Management System.pdb
 C:\Users\galaa\Downloads\Ari\C#\Book-Store-Stock-Management-System\Book Store Stock Management System\obj\Debug\net9.0-windows\Book Store Stock Management System.genruntimeconfig.cache
 C:\Users\galaa\Downloads\Ari\C#\Book-Store-Stock-Management-System\Book Store Stock Management System\obj\Debug\net9.0-windows\ref\Book Store Stock Management System.dll
+C:\Users\galaa\Downloads\Ari\C#\Book-Store-Stock-Management-System\Book Store Stock Management System\obj\Debug\net9.0-windows\Book_Store_Stock_Management_System.View.UsersTab.resources
+C:\Users\galaa\Downloads\Ari\C#\Book-Store-Stock-Management-System\Book Store Stock Management System\obj\Debug\net9.0-windows\Book_Store_Stock_Management_System.View.ChangePassForm.resources

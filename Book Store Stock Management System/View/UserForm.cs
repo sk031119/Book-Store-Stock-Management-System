@@ -15,8 +15,10 @@ namespace Book_Store_Stock_Management_System.View
             isNew = true;
             populateRoles();
 
-            textId.Enabled = false; // identity
+            labelPass.Visible = true;
             textPassword.Visible = true;
+            labelConfirmPass.Visible = true;
+            textConfirmPass.Visible = true;
         }
 
         public UserForm(User user)
@@ -31,16 +33,17 @@ namespace Book_Store_Stock_Management_System.View
             textUsername.Text = user.Username;
             comboRole.SelectedItem = user.Role;
 
-            textId.Enabled = false;
-            textPassword.Visible = false; // don't show password on edit
-
-            buttonSave.Click += buttonSave_Click;
-            buttonClear.Click += buttonClear_Click;
+            // don't show password on edit
+            textPassword.Visible = false;
+            labelPass.Visible = false;
+            labelConfirmPass.Visible = false;
+            textConfirmPass.Visible = false;
         }
 
         private void populateRoles()
         {
             comboRole.DataSource = Enum.GetNames(typeof(UserRole));
+            comboRole.SelectedIndex = -1;
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
@@ -90,10 +93,32 @@ namespace Book_Store_Stock_Management_System.View
                 return false;
             }
 
-            if (isNew && string.IsNullOrWhiteSpace(textPassword.Text))
+            // Password format validation
+            if (isNew)
             {
-                errorProvider.SetError(textPassword, "Enter a password!");
-                return false;
+                string password = textPassword.Text;
+                string confirm = textConfirmPass.Text;
+
+                if (string.IsNullOrWhiteSpace(password))
+                {
+                    errorProvider.SetError(textPassword, "Enter password!");
+                    return false;
+                }
+
+                if (password.Length < 6 ||
+                    !password.Any(char.IsUpper) ||
+                    !password.Any(char.IsLower) ||
+                    !password.Any(char.IsDigit))
+                {
+                    errorProvider.SetError(textPassword, "Password must be at least 6 characters and contain upper, lower, and a number.");
+                    return false;
+                }
+
+                if (password != confirm)
+                {
+                    errorProvider.SetError(textConfirmPass, "Passwords do not match!");
+                    return false;
+                }
             }
 
             return true;
