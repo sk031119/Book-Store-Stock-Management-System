@@ -1,0 +1,1 @@
+Scaffold-DbContext "Server=bookstore-cs.database.windows.net;Database=csdb;User ID=cs-admin;Password=SQL-server;Encrypt=True;TrustServerCertificate=True;" -Provider Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Context CsdbContext -DataAnnotations -Force

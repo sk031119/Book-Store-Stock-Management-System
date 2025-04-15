@@ -1,34 +1,43 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Compile Update="AuthorForm.cs">
+    <Compile Update="View\AuthorForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="BookForm.cs">
+    <Compile Update="View\BookForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="BookTab.cs">
+    <Compile Update="View\BookTab.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="CategoriesTab.cs">
+    <Compile Update="View\CategoriesTab.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="CategoryForm.cs">
+    <Compile Update="View\CategoryForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="LoginForm.cs">
+    <Compile Update="View\ChangePassForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Dashboard.cs">
+    <Compile Update="View\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="AuthorsTab.cs">
+    <Compile Update="View\Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\AuthorsTab.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="PublisherForm.cs">
+    <Compile Update="View\PublisherForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="PublisherTab.cs">
+    <Compile Update="View\PublisherTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="View\UserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\UsersTab.cs">
       <SubType>UserControl</SubType>
     </Compile>
   </ItemGroup>
