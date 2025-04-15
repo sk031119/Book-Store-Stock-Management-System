@@ -65,10 +65,20 @@ namespace Book_Store_Stock_Management_System
 
         private void buttonLogout_Click(object sender, EventArgs e)
         {
-            LoginForm loginForm = new LoginForm();
-            loginForm.Show();
 
-            this.Close();
+            DialogResult dialogResult = MessageBox.Show("Are you sure to logout? ",
+                                               "Confirm",
+                                               MessageBoxButtons.YesNo,
+                                               MessageBoxIcon.Question);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                this.Hide();
+
+                LoginForm loginForm = new LoginForm();
+                loginForm.Show();
+            }
+
         }
 
         private void Dashboard_FormClosed(object sender, FormClosedEventArgs e)

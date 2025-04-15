@@ -52,5 +52,10 @@ namespace Book_Store_Stock_Management_System
                 _ => UserRole.GUEST
             };
         }
+
+        private void LoginForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

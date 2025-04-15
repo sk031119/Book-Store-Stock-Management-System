@@ -95,6 +95,7 @@
             Margin = new Padding(2);
             Name = "LoginForm";
             Text = "Stock Management System";
+            FormClosed += LoginForm_FormClosed;
             ResumeLayout(false);
             PerformLayout();
         }
