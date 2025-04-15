@@ -45,7 +45,6 @@ namespace Book_Store_Stock_Management_System
             // Removing tabs based on role
             if (userRole == UserRole.EMPLOYEE)
             {
-                tabControl.TabPages.Remove(tabReports);
                 tabControl.TabPages.Remove(tabUsers);
             }
             else if (userRole == UserRole.GUEST)
@@ -53,7 +52,6 @@ namespace Book_Store_Stock_Management_System
                 tabControl.TabPages.Remove(tabAuthors);
                 tabControl.TabPages.Remove(tabPublishers);
                 tabControl.TabPages.Remove(tabCategory);
-                tabControl.TabPages.Remove(tabReports);
                 tabControl.TabPages.Remove(tabUsers);
             }
         }

@@ -34,7 +34,6 @@
             tabAuthors = new TabPage();
             tabCategory = new TabPage();
             tabPublishers = new TabPage();
-            tabReports = new TabPage();
             tabUsers = new TabPage();
             lblWelcome = new Label();
             buttonLogout = new Button();
@@ -47,7 +46,6 @@
             tabControl.Controls.Add(tabAuthors);
             tabControl.Controls.Add(tabCategory);
             tabControl.Controls.Add(tabPublishers);
-            tabControl.Controls.Add(tabReports);
             tabControl.Controls.Add(tabUsers);
             tabControl.Location = new Point(10, 11);
             tabControl.Name = "tabControl";
@@ -92,15 +90,6 @@
             tabPublishers.TabIndex = 3;
             tabPublishers.Text = "Publishers";
             tabPublishers.UseVisualStyleBackColor = true;
-            // 
-            // tabReports
-            // 
-            tabReports.Location = new Point(4, 24);
-            tabReports.Name = "tabReports";
-            tabReports.Size = new Size(843, 434);
-            tabReports.TabIndex = 5;
-            tabReports.Text = "Reports";
-            tabReports.UseVisualStyleBackColor = true;
             // 
             // tabUsers
             // 
@@ -157,7 +146,6 @@
         private TabPage tabAuthors;
         private TabPage tabCategory;
         private TabPage tabPublishers;
-        private TabPage tabReports;
         private Label lblWelcome;
         private TabPage tabUsers;
         private TabPage tabBooks;
