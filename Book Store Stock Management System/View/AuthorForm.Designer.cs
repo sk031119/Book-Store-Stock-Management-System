@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AuthorForm));
             lblFName = new Label();
             lblLName = new Label();
             txtFName = new TextBox();
@@ -39,40 +40,45 @@
             // lblFName
             // 
             lblFName.AutoSize = true;
-            lblFName.Location = new Point(12, 15);
+            lblFName.Location = new Point(9, 12);
+            lblFName.Margin = new Padding(2, 0, 2, 0);
             lblFName.Name = "lblFName";
-            lblFName.Size = new Size(88, 19);
+            lblFName.Size = new Size(67, 15);
             lblFName.TabIndex = 0;
             lblFName.Text = "First Name:";
             // 
             // lblLName
             // 
             lblLName.AutoSize = true;
-            lblLName.Location = new Point(12, 55);
+            lblLName.Location = new Point(9, 43);
+            lblLName.Margin = new Padding(2, 0, 2, 0);
             lblLName.Name = "lblLName";
-            lblLName.Size = new Size(86, 19);
+            lblLName.Size = new Size(66, 15);
             lblLName.TabIndex = 1;
             lblLName.Text = "Last Name:";
             // 
             // txtFName
             // 
-            txtFName.Location = new Point(96, 12);
+            txtFName.Location = new Point(75, 9);
+            txtFName.Margin = new Padding(2, 2, 2, 2);
             txtFName.Name = "txtFName";
-            txtFName.Size = new Size(200, 27);
+            txtFName.Size = new Size(156, 23);
             txtFName.TabIndex = 2;
             // 
             // txtLName
             // 
-            txtLName.Location = new Point(96, 52);
+            txtLName.Location = new Point(75, 41);
+            txtLName.Margin = new Padding(2, 2, 2, 2);
             txtLName.Name = "txtLName";
-            txtLName.Size = new Size(200, 27);
+            txtLName.Size = new Size(156, 23);
             txtLName.TabIndex = 3;
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(96, 95);
+            btnSave.Location = new Point(75, 75);
+            btnSave.Margin = new Padding(2, 2, 2, 2);
             btnSave.Name = "btnSave";
-            btnSave.Size = new Size(75, 29);
+            btnSave.Size = new Size(58, 23);
             btnSave.TabIndex = 4;
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = true;
@@ -80,9 +86,10 @@
             // 
             // btnCancel
             // 
-            btnCancel.Location = new Point(221, 95);
+            btnCancel.Location = new Point(172, 75);
+            btnCancel.Margin = new Padding(2, 2, 2, 2);
             btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(75, 29);
+            btnCancel.Size = new Size(58, 23);
             btnCancel.TabIndex = 5;
             btnCancel.Text = "Cancel";
             btnCancel.UseVisualStyleBackColor = true;
@@ -90,15 +97,17 @@
             // 
             // AuthorForm
             // 
-            AutoScaleDimensions = new SizeF(9F, 19F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(308, 136);
+            ClientSize = new Size(240, 107);
             Controls.Add(btnCancel);
             Controls.Add(btnSave);
             Controls.Add(txtLName);
             Controls.Add(txtFName);
             Controls.Add(lblLName);
             Controls.Add(lblFName);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(2, 2, 2, 2);
             Name = "AuthorForm";
             Text = "AuthorForm";
             Load += AuthorForm_Load;

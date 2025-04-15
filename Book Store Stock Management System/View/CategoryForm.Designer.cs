@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CategoryForm));
             buttonSave = new Button();
             buttonClear = new Button();
             label1 = new Label();
@@ -99,6 +100,7 @@
             Controls.Add(label2);
             Controls.Add(txtName);
             Controls.Add(txtId);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "CategoryForm";
             Text = "Category";
             ResumeLayout(false);

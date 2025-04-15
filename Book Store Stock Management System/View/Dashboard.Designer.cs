@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             tabControl = new TabControl();
             tabBooks = new TabPage();
             tabAuthors = new TabPage();
@@ -140,6 +141,7 @@
             Controls.Add(buttonLogout);
             Controls.Add(lblWelcome);
             Controls.Add(tabControl);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Dashboard";
             Text = "Stock Management System";
             FormClosed += Dashboard_FormClosed;

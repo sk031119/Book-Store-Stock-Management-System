@@ -1,43 +1,72 @@
 ﻿using Book_Store_Stock_Management_System.Models;
 using Microsoft.Data.SqlClient;
-using Microsoft.EntityFrameworkCore;
 
 namespace Book_Store_Stock_Management_System.Controller
 {
     public static class CategoriesDB
     {
+
+        private static string connectionString = @"Server=tcp:bookstore-cs.database.windows.net,1433;
+                                                    Initial Catalog=csdb;
+                                                    Persist Security Info=False;
+                                                    User ID=cs-admin;
+                                                    Password=SQL-server;
+                                                    MultipleActiveResultSets=False;
+                                                    Encrypt=True;
+                                                    TrustServerCertificate=False;
+                                                    Connection Timeout=30;";
+
         // Get all categories
         public static List<Category> GetCategories()
         {
-            using (var context = new CsdbContext())
+            List<Category> categories = new List<Category>();
+            string query = "SELECT CategoryId, CategoryName FROM Categories ORDER BY CategoryName";
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlCommand cmd = new SqlCommand(query, conn))
             {
-                return context.Categories
-                    .OrderBy(c => c.CategoryName)
-                    .ToList();
+                conn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    categories.Add(new Category
+                    {
+                        CategoryId = reader.GetInt32(0),
+                        CategoryName = reader.GetString(1)
+                    });
+                }
+                reader.Close();
             }
+
+            return categories;
         }
 
         // Add new category
         public static void AddCategory(Category newCategory)
         {
-            using (var context = new CsdbContext())
+            string query = "INSERT INTO Categories (CategoryName) VALUES (@name)";
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlCommand cmd = new SqlCommand(query, conn))
             {
-                context.Categories.Add(newCategory);
-                context.SaveChanges();
+                cmd.Parameters.AddWithValue("@name", newCategory.CategoryName);
+                conn.Open();
+                cmd.ExecuteNonQuery();
             }
         }
 
         // Update existing category
         public static void UpdateCategory(Category updatedCategory)
         {
-            using (var context = new CsdbContext())
+            string query = "UPDATE Categories SET CategoryName = @name WHERE CategoryId = @id";
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlCommand cmd = new SqlCommand(query, conn))
             {
-                var existing = context.Categories.FirstOrDefault(c => c.CategoryId == updatedCategory.CategoryId);
-                if (existing != null)
-                {
-                    existing.CategoryName = updatedCategory.CategoryName;
-                    context.SaveChanges();
-                }
+                cmd.Parameters.AddWithValue("@name", updatedCategory.CategoryName);
+                cmd.Parameters.AddWithValue("@id", updatedCategory.CategoryId);
+                conn.Open();
+                cmd.ExecuteNonQuery();
             }
         }
 
@@ -45,46 +74,27 @@ namespace Book_Store_Stock_Management_System.Controller
         public static bool DeleteCategory(int categoryId, out string errorMessage)
         {
             errorMessage = string.Empty;
+            string query = "DELETE FROM Categories WHERE CategoryId = @id";
 
-            using (var context = new CsdbContext())
+            try
             {
-                var category = context.Categories.FirstOrDefault(c => c.CategoryId == categoryId);
-                if (category != null)
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    try
-                    {
-                        context.Categories.Remove(category);
-                        context.SaveChanges();
-                        return true;
-                    }
-                    catch (DbUpdateException dbEx)
-                    {
-                        if (dbEx.InnerException is SqlException sqlEx && sqlEx.Number == 547) // FK constraint
-                        {
-                            errorMessage = "Cannot delete this category because it has related records!";
-                        }
-                        else
-                        {
-                            errorMessage = "Database error: " + dbEx.Message;
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        errorMessage = "Unexpected error: " + ex.Message;
-                    }
+                    cmd.Parameters.AddWithValue("@id", categoryId);
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    return true;
                 }
             }
-
-            return false;
-        }
-
-
-        // Count books by category
-        public static int CountBooksInCategory(int categoryId)
-        {
-            using (var context = new CsdbContext())
+            catch (SqlException ex)
             {
-                return context.Books.Count(book => book.CategoryId == categoryId);
+                if (ex.Number == 547) // foreign key constraint
+                    errorMessage = "Cannot delete this category because it has related records!";
+                else
+                    errorMessage = "SQL Error: " + ex.Message;
+
+                return false;
             }
         }
     }

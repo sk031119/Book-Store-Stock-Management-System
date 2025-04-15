@@ -68,7 +68,7 @@
             lblSearch.Name = "lblSearch";
             lblSearch.Size = new Size(66, 15);
             lblSearch.TabIndex = 28;
-            lblSearch.Text = "User name:";
+            lblSearch.Text = "Username:";
             // 
             // txtSearch
             // 
@@ -118,7 +118,7 @@
             // 
             // columnName
             // 
-            columnName.Text = "User name";
+            columnName.Text = "Username";
             columnName.Width = 120;
             // 
             // columnRole

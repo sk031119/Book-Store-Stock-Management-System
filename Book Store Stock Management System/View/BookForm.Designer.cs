@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BookForm));
             buttonClear = new Button();
             comboStatus = new ComboBox();
             comboCategory = new ComboBox();
@@ -230,6 +231,7 @@
             Controls.Add(txtTitle);
             Controls.Add(labelPublisher);
             Controls.Add(txtISBN);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "BookForm";
             Text = "Book";
             Enter += buttonSave_Click;
